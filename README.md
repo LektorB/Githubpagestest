@@ -1,2 +1,2 @@
 # Githubpagestest
-Forsøk med githubpages
+Forsøk med github pages
