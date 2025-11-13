@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elektriskfeltsimulering</title>
+    <!-- Laster inn Tailwind CSS for enkel styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Sikrer at canvas har en fin bakgrunn */
+        canvas {
+            background-color: #f7fafc; /* En lys gråfarge */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <div class="bg-white p-6 rounded-xl shadow-2xl w-full max-w-4xl">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">
+            Simulering av elektriskfelt
+        </h1>
+
+        <!-- ENDRING: Canvas for simulering flyttet OPP -->
+        <!-- La til mb-6 (margin-bottom) her for å beholde avstanden -->
+        <div class="border border-gray-300 rounded-lg overflow-hidden mb-6">
+            <canvas id="fieldCanvas" width="800" height="600"></canvas>
+        </div>
+
+        <!-- Kontrollpanel -->
+        <!-- ENDRING: Flyttet NED, fjernet mb-6 herfra -->
+        <div class="space-y-6">
+            <!-- Glider for antall ladninger -->
+            <div>
+                <label for="chargeSlider" class="block text-sm font-medium text-gray-700 mb-2">
+                    Antall ladningspar: 
+                    <span id="chargeCountLabel" class="font-bold text-blue-600">1</span>
+                </label>
+                <input 
+                    id="chargeSlider" 
+                    type="range" 
+                    min="1" 
+                    max="25" 
+                    value="1" 
+                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                >
+                <div class="flex justify-between text-xs text-gray-500 mt-2">
+                    <span>Lite (Punktladning)</span>
+                    <span>Mange (Platekondensator)</span>
+                </div>
+            </div>
+
+            <!-- NY: Valg for visningsmodus -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Visningsmodus:</label>
+                <div class="flex space-x-4">
+                    <label class="flex items-center">
+                        <input type="radio" id="modeStrength" name="visMode" value="strength" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500" checked>
+                        <span class="ml-2 text-sm text-gray-700">Feltstyrke (Variabel lengde)</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" id="modeDirection" name="visMode" value="direction" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                        <span class="ml-2 text-sm text-gray-700">Retning (Lik lengde)</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Hent referanser til HTML-elementer
+        const canvas = document.getElementById('fieldCanvas');
+        const ctx = canvas.getContext('2d');
+        const slider = document.getElementById('chargeSlider');
+        const countLabel = document.getElementById('chargeCountLabel');
+
+        // NY: Referanser til modus-knappene
+        const modeStrengthRadio = document.getElementById('modeStrength');
+        const modeDirectionRadio = document.getElementById('modeDirection');
+        let visualizationMode = 'strength'; // Global variabel for å holde styr på modus
+
+        // Konstater for simuleringen
+        const canvasWidth = canvas.width;
+        const canvasHeight = canvas.height;
+        const positivePlateX = 250; // X-posisjon for positive ladninger
+        const negativePlateX = 550; // X-posisjon for negative ladninger
+        const fieldStrengthConstant = 5000;
+        const gridSize = 30;
+        const chargeRadius = 8;
+
+        /**
+         * Hovedfunksjon for å tegne hele simuleringen
+         */
+        function drawSimulation() {
+            const numPairs = parseInt(slider.value, 10);
+            countLabel.textContent = numPairs;
+
+            // Tøm canvas
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+            // Hent og tegn ladningene
+            const charges = getCharges(numPairs);
+            drawCharges(charges);
+
+            // Tegn feltvektorene
+            drawFieldVectors(charges);
+        }
+
+        /**
+         * Beregner posisjonene til ladningsparene
+         */
+        function getCharges(numPairs) {
+            const charges = [];
+            const yPadding = 100;
+            const availableHeight = canvasHeight - 2 * yPadding;
+
+            if (numPairs === 1) {
+                const y = canvasHeight / 2;
+                charges.push({ x: positivePlateX, y: y, q: 1 });
+                charges.push({ x: negativePlateX, y: y, q: -1 });
+            } else {
+                const ySpacing = availableHeight / (numPairs - 1);
+                for (let i = 0; i < numPairs; i++) {
+                    const y = yPadding + i * ySpacing;
+                    charges.push({ x: positivePlateX, y: y, q: 1 });
+                    charges.push({ x: negativePlateX, y: y, q: -1 });
+                }
+            }
+            return charges;
+        }
+
+        /**
+         * Tegner sirkler for hver ladning på canvas
+         */
+        function drawCharges(charges) {
+            charges.forEach(charge => {
+                ctx.beginPath();
+                ctx.arc(charge.x, charge.y, chargeRadius, 0, 2 * Math.PI);
+                ctx.fillStyle = charge.q > 0 ? '#ef4444' : '#3b82f6';
+                ctx.fill();
+            });
+        }
+
+        /**
+         * Beregner og tegner feltvektorene på et rutenett
+         */
+        function drawFieldVectors(charges) {
+            for (let x = 0; x < canvasWidth; x += gridSize) {
+                for (let y = 0; y < canvasHeight; y += gridSize) {
+                    
+                    let isInsideCharge = false;
+                    for (const charge of charges) {
+                        if (Math.hypot(x - charge.x, y - charge.y) < chargeRadius * 2) {
+                            isInsideCharge = true;
+                            break;
+                        }
+                    }
+                    if (isInsideCharge) continue;
+
+                    // Beregn total feltvektor (Ex, Ey)
+                    let totalEx = 0;
+                    let totalEy = 0;
+
+                    charges.forEach(charge => {
+                        const dx = x - charge.x;
+                        const dy = y - charge.y;
+                        const rSquared = dx * dx + dy * dy;
+                        const r = Math.sqrt(rSquared);
+
+                        if (r < 1) return;
+
+                        const E = fieldStrengthConstant * charge.q / rSquared;
+                        totalEx += E * (dx / r);
+                        totalEy += E * (dy / r);
+                    });
+
+                    // Tegn en pil for den resulterende vektoren
+                    drawVectorArrow(x, y, totalEx, totalEy);
+                }
+            }
+        }
+
+        /**
+         * Hjelpefunksjon for å tegne en pil
+         * ENDRET: Sjekker nå 'visualizationMode'
+         */
+        function drawVectorArrow(x, y, Ex, Ey) {
+            const magnitude = Math.hypot(Ex, Ey);
+            if (magnitude < 0.1) return; // Ikke tegn null-vektorer
+
+            // Normaliser vektoren (gjør den til en enhetsvektor)
+            const ux = Ex / magnitude;
+            const uy = Ey / magnitude;
+
+            let length; // Deklarer lengde-variabel
+            
+            // ENDRING: Velg lengde basert på global modus
+            if (visualizationMode === 'strength') {
+                // Skaler lengden på pilen for bedre visualisering (logarissmisk)
+                length = Math.log(magnitude + 1) * 12; // Modus for STYRKE
+            } else {
+                // 'direction' mode
+                // Gi alle en fast lengde
+                length = 15; // Modus for RETNING
+            }
+
+            const endX = x + ux * length;
+            const endY = y + uy * length;
+            const arrowSize = 4; // Størrelse på pilspissen
+
+            // Tegn linjen
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(endX, endY);
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            // Tegn pilspissen
+            ctx.beginPath();
+            ctx.moveTo(endX, endY);
+            ctx.lineTo(endX - arrowSize * (ux * 0.866 - uy * 0.5), endY - arrowSize * (uy * 0.866 + ux * 0.5));
+            ctx.lineTo(endX - arrowSize * (ux * 0.866 + uy * 0.5), endY - arrowSize * (uy * 0.866 - ux * 0.5));
+            ctx.lineTo(endX, endY);
+            ctx.fillStyle = '#333';
+            ctx.fill();
+        }
+        
+        // --- NYE EVENT LISTENERS ---
+
+        /**
+         * Oppdaterer den globale modus-variabelen og tegner på nytt
+         */
+        function updateMode() {
+            // Finner den valgte radioknappen
+            visualizationMode = document.querySelector('input[name="visMode"]:checked').value;
+            drawSimulation(); // Tegn på nytt med den nye modusen
+        }
+
+        // Lytt etter endringer på radioknappene
+        modeStrengthRadio.addEventListener('change', updateMode);
+        modeDirectionRadio.addEventListener('change', updateMode);
+
+        // Lytt etter endringer på glideren
+        slider.addEventListener('input', drawSimulation);
+
+        // Tegn simuleringen ved første lasting
+        drawSimulation();
+
+    </script>
+</body>
+</html>
