@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formel-guide for Word og OneNote</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+        h2, h3, h4 {
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f7f7f7;
+        }
+        blockquote {
+            background-color: #f9f9f9;
+            border-left: 5px solid #ccc;
+            padding: 10px 20px;
+            margin: 25px 0;
+        }
+        code {
+            background-color: #eef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 40px 0;
+        }
+        .equation {
+            font-style: italic;
+        }
+        /* Styling for brøker */
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0.2em;
+            text-align: center;
+        }
+        .fraction > span {
+            display: block;
+            padding: 0 0.2em;
+        }
+        .fraction > span.num {
+            border-bottom: 1.5px solid #000;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>&#128221; Formel-guide for Word og OneNote</h2>
+    <p>Å kunne skrive matte digitalt er supernyttig, enten du gjør lekser, tar notater i timen eller skriver en større oppgave. Både Word og OneNote har et kraftig innebygd formelverktøy som gjør dette enkelt. Forskjellen ligger hovedsakelig i hvordan du starter formelmodus.</p>
+
+    <h3>&#127937; Slik kommer du i gang: De rette hurtigtastene</h3>
+    <p>Den raskeste måten å starte en formel på er med riktig hurtigtast. Plasser markøren der du vil ha formelen, og bruk kombinasjonen for programmet du er i:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Program</th>
+                <th>Plattform</th>
+                <th>Hurtigtast</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Microsoft Word</strong></td>
+                <td>PC (Windows)</td>
+                <td><code>Alt</code> + <code>+</code> (pluss-tasten)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Mac</td>
+                <td><code>Control</code> + <code>=</code> (likhetstegnet)</td>
+            </tr>
+            <tr>
+                <td><strong>Microsoft OneNote</strong></td>
+                <td>PC (Windows)</td>
+                <td><code>Alt</code> + <code>=</code> (likhetstegnet)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Mac</td>
+                <td><code>Control</code> + <code>=</code> (likhetstegnet)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Når du trykker på hurtigtasten, vil du se at en formelboks dukker opp, og menyen øverst endrer seg til "Formel" (Equation). Her kan du klikke deg frem til symboler, men det går mye fortere å skrive dem direkte med kode.</p>
+    
+    <blockquote>
+        <strong>Viktig:</strong> Når formelboksen først er aktiv, er metodene for å skrive selve matematikken (kodene nedenfor) <strong>helt like</strong> i både Word og OneNote.
+    </blockquote>
+
+    <img src="bilde-av-formelverktoy.png" alt="Skjermbilde av Formel-verktøy menyen i Microsoft Office" style="border: 1px solid #ddd; border-radius: 4px;">
+
+    <hr>
+
+    <h3>&#129521; Grunnleggende byggeklosser</h3>
+    <p>Her er kodene for de vanligste matematiske uttrykkene. Du skriver koden og trykker <strong>mellomrom</strong> for å gjøre den om til et ferdig formatert tegn.</p>
+    
+    <h4>Hevet og senket skrift</h4>
+    <p>Dette bruker du hele tiden til potenser og indekser.</p>
+    <ul>
+        <li><strong>Hevet skrift (potens):</strong> Bruk <code>^</code>-tegnet.
+            <ul>
+                <li>Eksempel: Skriv <code>x^2</code> og trykk mellomrom for å få <span class="equation">x<sup>2</sup></span>.</li>
+                <li>Eksempel med flere tegn: Skriv <code>10^-3</code> og trykk mellomrom for å få <span class="equation">10<sup>-3</sup></span>.</li>
+            </ul>
+        </li>
+        <li><strong>Senket skrift (indeks):</strong> Bruk <code>_</code>-tegnet (underscore).
+            <ul>
+                <li>Eksempel: Skriv <code>v_0</code> og trykk mellomrom for å få <span class="equation">v<sub>0</sub></span>.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <blockquote>
+        <strong>&#128161;Profftips:</strong> Hvis du skal ha flere ting i potensen eller indeksen, bruk parentes. Skriv <code>x^(2n+1)</code> for å få <span class="equation">x<sup>2n+1</sup></span>.
+    </blockquote>
+
+    <hr>
+
+    <h3>&#128207; Parenteser, brøker og røtter</h3>
+    
+    <h4>Parenteser</h4>
+    <p>Vanlige parenteser <code>()</code> og hakeparenteser <code>[]</code> skriver du som normalt. Formelverktøyet justerer størrelsen automatisk.</p>
+    <ul>
+        <li><strong>Langel og Rangel (vinkelparenteser):</strong> Brukes ofte for åpne mengder (intervaller). Skriv <code>\langle</code> og <code>\rangle</code> for å få &lang; og &rang;.</li>
+        <li><strong>Mengdeparenteser (krøllparenteser):</strong> Skriv <code>{</code> og <code>}</code> for å få { og }.</li>
+    </ul>
+
+    <h4>Brøker</h4>
+    <p>Bruk <code>/</code> (skråstrek) for å lage brøker.</p>
+    <ul>
+        <li>Eksempel: Skriv <code>(a+b)/2</code> og trykk mellomrom for å få 
+            <span class="fraction">
+                <span class="num">a+b</span>
+                <span class="den">2</span>
+            </span>.
+        </li>
+        <li>Eksempel 2: <code>(2x)/(x^2-4)</code> blir 
+             <span class="fraction">
+                <span class="num">2x</span>
+                <span class="den">x<sup>2</sup>-4</span>
+            </span>.
+        </li>
+    </ul>
+
+    <h4>Røtter</h4>
+    <p>For røtter skriver du <code>\sqrt</code> (square root).</p>
+    <ul>
+        <li><strong>Kvadratrot:</strong> Skriv <code>\sqrt(9)</code> og trykk mellomrom for å få &radic;9.</li>
+        <li><strong>N-te rot:</strong> Skriv <code>\sqrt(n&x)</code> der n er rot-tallet.
+            <ul>
+                <li>Eksempel (kuberot): Skriv <code>\sqrt(3&8)</code> for å få &#8731;8.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h3>&#128200; Funksjoner, trigonometri og mengdelære</h3>
+
+    <h4>Funksjoner og trigonometri</h4>
+    <p>Funksjonsnavn som <code>sin</code>, <code>cos</code> og <code>tan</code> blir automatisk formatert riktig.</p>
+    <ul>
+        <li><strong>Funksjoner:</strong> <code>f(x) = 2x - 5</code> blir <span class="equation">f(x) = 2x - 5</span>.</li>
+        <li><strong>Trigonometri:</strong> <code>sin(x)</code>, <code>cos(v)</code> blir <span class="equation">sin(x), cos(v)</span>.</li>
+        <li><strong>Greske bokstaver:</strong> Skriv <code>\</code> fulgt av navnet.
+            <ul>
+                <li><code>\pi</code> blir &pi;</li>
+                <li><code>\alpha</code> blir &alpha;</li>
+                <li><code>\Delta</code> blir &Delta;</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4>Mengdelære</h4>
+    <p>Symboler for tallmengder og element-tegn er også enkle å skrive.</p>
+    <ul>
+        <li><strong>Element av / Ikke element av:</strong>
+            <ul>
+                <li><code>\in</code> blir &isin; (er element i)</li>
+                <li><code>\notin</code> blir &notin; (er ikke element i)</li>
+                <li>Eksempel: <code>5 \in \mathbb{N}</code> gir <span class="equation">5 &isin; &#8469;</span>.</li>
+            </ul>
+        </li>
+        <li><strong>Tallmengder:</strong> Skriv <code>\double</code> fulgt av bokstaven.
+            <ul>
+                <li><code>\doubleN</code> blir &#8469; (Naturlige tall)</li>
+                <li><code>\doubleZ</code> blir &#8484; (Hele tall)</li>
+                <li><code>\doubleQ</code> blir &#8474; (Rasjonale tall)</li>
+                <li><code>\doubleR</code> blir &#8477; (Reelle tall)</li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+</html>
