@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harer og Gauper — Lotka-Volterra Simulering</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for responsive multi-axis plotting -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            background: #2563eb;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6 mb-6 border-b border-slate-800 gap-4">
+            <div>
+                <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+                    <span class="p-2 bg-blue-600/20 text-blue-400 rounded-lg"><i class="fa-solid fa-chart-line"></i></span>
+                    Populasjonsdynamikk: Harer og Gauper
+                </h1>
+                <p class="text-slate-400 text-sm mt-1">
+                    Interaktiv Lotka-Volterra simulering over 1000 måneder basert på kjemisk/biologisk diffusjons- og predasjonsmodell.
+                </p>
+            </div>
+            <!-- Preset Buttons -->
+            <div class="flex flex-wrap gap-2">
+                <button onclick="setPreset('standard')" class="px-3 py-1.5 text-xs font-medium rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 transition">
+                    Standard
+                </button>
+                <button onclick="setPreset('balanse')" class="px-3 py-1.5 text-xs font-medium rounded-md bg-slate-800 hover:bg-slate-700 text-emerald-400 transition">
+                    Jevn balanse
+                </button>
+                <button onclick="setPreset('eksplosjon')" class="px-3 py-1.5 text-xs font-medium rounded-md bg-slate-800 hover:bg-slate-700 text-amber-400 transition">
+                    Gaupe-topp
+                </button>
+                <button onclick="setPreset('kollaps')" class="px-3 py-1.5 text-xs font-medium rounded-md bg-slate-800 hover:bg-slate-700 text-rose-400 transition">
+                    Populasjonskollaps
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-4 bg-slate-800/60 backdrop-blur border border-slate-700/60 rounded-2xl p-5 shadow-xl flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-semibold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-sliders text-blue-400"></i> Simuleringsparametere
+                        </h2>
+                        <button onclick="resetToDefaults()" title="Nullstill parametere" class="text-xs text-slate-400 hover:text-white transition">
+                            <i class="fa-solid fa-rotate-left mr-1"></i>Nullstill
+                        </button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Start Harer (H_ant) -->
+                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-xs font-medium text-blue-300">Startantal Harer ($H_{ant}$)</label>
+                                <span id="val_H_ant" class="text-xs font-bold font-mono text-blue-400">1000</span>
+                            </div>
+                            <input type="range" id="H_ant" min="200" max="2000" step="100" value="1000" class="w-full bg-slate-700 rounded-lg appearance-none h-2 cursor-pointer">
+                        </div>
+
+                        <!-- Start Gauper (G_ant) -->
+                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-xs font-medium text-rose-300">Startantall Gauper ($G_{ant}$)</label>
+                                <span id="val_G_ant" class="text-xs font-bold font-mono text-rose-400">2.0</span>
+                            </div>
+                            <input type="range" id="G_ant" min="1" max="50" step="1" value="2" class="w-full bg-slate-700 rounded-lg appearance-none h-2 cursor-pointer">
+                        </div>
+
+                        <!-- Harer Reproduksjon (Hare_rep) -->
+                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-xs font-medium text-slate-300">Harer Reproduksjon (%)</label>
+                                <span id="val_Hare_rep" class="text-xs font-bold font-mono text-slate-200">3.0%</span>
+                            </div>
+                            <input type="range" id="Hare_rep" min="0.1" max="20" step="0.1" value="3" class="w-full bg-slate-700 rounded-lg appearance-none h-2 cursor-pointer">
+                        </div>
+
+                        <!-- Jaktsuksess (Jakt_suksess) -->
+                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-xs font-medium text-slate-300">Jaktsuksess (%)</label>
+                                <span id="val_Jakt_suksess" class="text-xs font-bold font-mono text-slate-200">0.50%</span>
+                            </div>
+                            <input type="range" id="Jakt_suksess" min="0.01" max="1" step="0.01" value="0.5" class="w-full bg-slate-700 rounded-lg appearance-none h-2 cursor-pointer">
+                        </div>
+
+                        <!-- Gaupe Reproduksjon (Gaupe_rep) -->
+                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-xs font-medium text-slate-300">Gaupe Reproduksjon (%)</label>
+                                <span id="val_Gaupe_rep" class="text-xs font-bold font-mono text-slate-200">0.020%</span>
+                            </div>
+                            <input type="range" id="Gaupe_rep" min="0.005" max="0.1" step="0.001" value="0.02" class="w-full bg-slate-700 rounded-lg appearance-none h-2 cursor-pointer">
+                        </div>
+
+                        <!-- Gaupe Død (Gaupe_død) -->
+                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-xs font-medium text-slate-300">Gaupe Dødsrate (%)</label>
+                                <span id="val_Gaupe_død" class="text-xs font-bold font-mono text-slate-200">6.0%</span>
+                            </div>
+                            <input type="range" id="Gaupe_død" min="1" max="20" step="0.5" value="6" class="w-full bg-slate-700 rounded-lg appearance-none h-2 cursor-pointer">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula Info Card -->
+                <div class="mt-6 pt-4 border-t border-slate-700/60 text-xs text-slate-400 space-y-1">
+                    <p class="font-semibold text-slate-300 mb-1"><i class="fa-solid fa-square-root-variable text-blue-400"></i> Ligninger (per måned):</p>
+                    <p class="font-mono bg-slate-950/40 p-1.5 rounded text-[11px] border border-slate-800">$\Delta H = H \cdot r_h - H \cdot G \cdot s_j$</p>
+                    <p class="font-mono bg-slate-950/40 p-1.5 rounded text-[11px] border border-slate-800">$\Delta G = H \cdot G \cdot r_g - G \cdot d_g$</p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-8 flex flex-col gap-6">
+                <!-- Metrics Summary Bar -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="bg-slate-800/60 border border-slate-700/60 rounded-xl p-4">
+                        <span class="text-xs font-medium text-slate-400">Maks Harer</span>
+                        <p id="stat_max_h" class="text-xl font-bold text-blue-400 mt-1">0</p>
+                    </div>
+                    <div class="bg-slate-800/60 border border-slate-700/60 rounded-xl p-4">
+                        <span class="text-xs font-medium text-slate-400">Min Harer</span>
+                        <p id="stat_min_h" class="text-xl font-bold text-blue-300 mt-1">0</p>
+                    </div>
+                    <div class="bg-slate-800/60 border border-slate-700/60 rounded-xl p-4">
+                        <span class="text-xs font-medium text-slate-400">Maks Gauper</span>
+                        <p id="stat_max_g" class="text-xl font-bold text-rose-400 mt-1">0</p>
+                    </div>
+                    <div class="bg-slate-800/60 border border-slate-700/60 rounded-xl p-4">
+                        <span class="text-xs font-medium text-slate-400">Min Gauper</span>
+                        <p id="stat_min_g" class="text-xl font-bold text-rose-300 mt-1">0</p>
+                    </div>
+                </div>
+
+                <!-- Main Chart Container -->
+                <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-5 shadow-xl flex-grow flex flex-col">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-base font-semibold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-chart-area text-emerald-400"></i> Populasjonsutvikling (1000 Måneder)
+                        </h2>
+                        <div class="flex items-center gap-4 text-xs font-medium">
+                            <span class="flex items-center gap-1.5 text-blue-400">
+                                <span class="w-3 h-3 bg-blue-500 rounded-full inline-block"></span> Harer (Venstre akse)
+                            </span>
+                            <span class="flex items-center gap-1.5 text-rose-400">
+                                <span class="w-3 h-3 bg-rose-500 rounded-full inline-block"></span> Gauper (Høyre akse)
+                            </span>
+                        </div>
+                    </div>
+                    <div class="relative w-full h-[400px]">
+                        <canvas id="popChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Default slider settings matching original python widget
+        const defaults = {
+            H_ant: 1000,
+            G_ant: 2,
+            Hare_rep: 3,
+            Jakt_suksess: 0.5,
+            Gaupe_rep: 0.02,
+            Gaupe_død: 6
+        };
+
+        // DOM Element references
+        const inputs = {
+            H_ant: document.getElementById('H_ant'),
+            G_ant: document.getElementById('G_ant'),
+            Hare_rep: document.getElementById('Hare_rep'),
+            Jakt_suksess: document.getElementById('Jakt_suksess'),
+            Gaupe_rep: document.getElementById('Gaupe_rep'),
+            Gaupe_død: document.getElementById('Gaupe_død')
+        };
+
+        const labels = {
+            H_ant: document.getElementById('val_H_ant'),
+            G_ant: document.getElementById('val_G_ant'),
+            Hare_rep: document.getElementById('val_Hare_rep'),
+            Jakt_suksess: document.getElementById('val_Jakt_suksess'),
+            Gaupe_rep: document.getElementById('val_Gaupe_rep'),
+            Gaupe_død: document.getElementById('val_Gaupe_død')
+        };
+
+        let popChart = null;
+
+        function runSimulation() {
+            let H_ant = parseFloat(inputs.H_ant.value);
+            let G_ant = parseFloat(inputs.G_ant.value);
+            const Hare_rep = parseFloat(inputs.Hare_rep.value);
+            const Jakt_suksess = parseFloat(inputs.Jakt_suksess.value);
+            const Gaupe_rep = parseFloat(inputs.Gaupe_rep.value);
+            const Gaupe_død = parseFloat(inputs.Gaupe_død.value);
+
+            const slutt_tid = 1000;
+            let tid = 0;
+
+            const H_liste = [];
+            const G_liste = [];
+            const tid_liste = [];
+
+            while (tid < slutt_tid) {
+                // Calculation matches exact python logic
+                const H_diff = (H_ant * Hare_rep / 100) - (H_ant * G_ant * Jakt_suksess / 100);
+                const G_diff = (H_ant * G_ant * Gaupe_rep / 100) - (G_ant * Gaupe_død / 100);
+
+                // Math.ceil matching python math.ceil(H_ant + H_diff)
+                H_ant = Math.ceil(H_ant + H_diff);
+                G_ant = G_ant + G_diff;
+
+                // Safety checks to prevent infinite/negative values
+                if (H_ant < 0) H_ant = 0;
+                if (G_ant < 0) G_ant = 0;
+
+                tid += 1;
+
+                H_liste.push(H_ant);
+                G_liste.push(G_ant);
+                tid_liste.push(tid);
+            }
+
+            return { H_liste, G_liste, tid_liste };
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('popChart').getContext('2d');
+            
+            popChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'Harer',
+                            data: [],
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.05)',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            pointHoverRadius: 5,
+                            yAxisID: 'y_hares',
+                            tension: 0.2,
+                            fill: true
+                        },
+                        {
+                            label: 'Gauper',
+                            data: [],
+                            borderColor: '#f43f5e',
+                            backgroundColor: 'rgba(244, 63, 94, 0.05)',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            pointHoverRadius: 5,
+                            yAxisID: 'y_lynx',
+                            tension: 0.2,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#0f172a',
+                            titleColor: '#f8fafc',
+                            bodyColor: '#cbd5e1',
+                            borderColor: '#334155',
+                            borderWidth: 1,
+                            padding: 10,
+                            displayColors: true
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Antall måneder',
+                                color: '#94a3b8',
+                                font: { size: 12 }
+                            },
+                            grid: {
+                                color: 'rgba(51, 65, 85, 0.4)'
+                            },
+                            ticks: {
+                                color: '#64748b'
+                            }
+                        },
+                        y_hares: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: 'Antall harer',
+                                color: '#3b82f6',
+                                font: { size: 12, weight: 'bold' }
+                            },
+                            grid: {
+                                color: 'rgba(51, 65, 85, 0.3)'
+                            },
+                            ticks: {
+                                color: '#3b82f6'
+                            }
+                        },
+                        y_lynx: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'Antall gauper',
+                                color: '#f43f5e',
+                                font: { size: 12, weight: 'bold' }
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            },
+                            ticks: {
+                                color: '#f43f5e'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateUI() {
+            // Update label texts
+            labels.H_ant.textContent = Math.round(inputs.H_ant.value);
+            labels.G_ant.textContent = parseFloat(inputs.G_ant.value).toFixed(1);
+            labels.Hare_rep.textContent = parseFloat(inputs.Hare_rep.value).toFixed(1) + '%';
+            labels.Jakt_suksess.textContent = parseFloat(inputs.Jakt_suksess.value).toFixed(2) + '%';
+            labels.Gaupe_rep.textContent = parseFloat(inputs.Gaupe_rep.value).toFixed(3) + '%';
+            labels.Gaupe_død.textContent = parseFloat(inputs.Gaupe_død.value).toFixed(1) + '%';
+
+            // Calculate simulation
+            const { H_liste, G_liste, tid_liste } = runSimulation();
+
+            // Calculate statistics
+            const maxH = Math.max(...H_liste);
+            const minH = Math.min(...H_liste);
+            const maxG = Math.max(...G_liste);
+            const minG = Math.min(...G_liste);
+
+            document.getElementById('stat_max_h').textContent = maxH.toLocaleString('no');
+            document.getElementById('stat_min_h').textContent = minH.toLocaleString('no');
+            document.getElementById('stat_max_g').textContent = maxG.toFixed(1);
+            document.getElementById('stat_min_g').textContent = minG.toFixed(1);
+
+            // Update chart data
+            if (popChart) {
+                popChart.data.labels = tid_liste;
+                popChart.data.datasets[0].data = H_liste;
+                popChart.data.datasets[1].data = G_liste;
+                popChart.update('none'); // Quick re-render without lag during drag
+            }
+        }
+
+        function resetToDefaults() {
+            Object.keys(defaults).forEach(key => {
+                inputs[key].value = defaults[key];
+            });
+            updateUI();
+        }
+
+        function setPreset(name) {
+            if (name === 'standard') {
+                resetToDefaults();
+            } else if (name === 'balanse') {
+                inputs.H_ant.value = 1200;
+                inputs.G_ant.value = 6;
+                inputs.Hare_rep.value = 4.0;
+                inputs.Jakt_suksess.value = 0.40;
+                inputs.Gaupe_rep.value = 0.025;
+                inputs.Gaupe_død.value = 8.0;
+            } else if (name === 'eksplosjon') {
+                inputs.H_ant.value = 1800;
+                inputs.G_ant.value = 2;
+                inputs.Hare_rep.value = 8.0;
+                inputs.Jakt_suksess.value = 0.60;
+                inputs.Gaupe_rep.value = 0.04;
+                inputs.Gaupe_død.value = 4.0;
+            } else if (name === 'kollaps') {
+                inputs.H_ant.value = 500;
+                inputs.G_ant.value = 25;
+                inputs.Hare_rep.value = 1.5;
+                inputs.Jakt_suksess.value = 0.85;
+                inputs.Gaupe_rep.value = 0.01;
+                inputs.Gaupe_død.value = 3.0;
+            }
+            updateUI();
+        }
+
+        // Attach event listeners to input sliders
+        Object.values(inputs).forEach(input => {
+            input.addEventListener('input', updateUI);
+        });
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            initChart();
+            updateUI();
+        });
+    </script>
+</body>
+</html>
