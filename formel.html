@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formel-guide for Kjemi i Naturfag (Word og OneNote)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            max-width: 850px;
+            margin: 20px auto;
+            padding: 0 20px;
+            background-color: #fcfcfc;
+        }
+        h2 {
+            color: #0d5c75;
+            border-bottom: 3px solid #0d5c75;
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        h3, h4 {
+            color: #16697a;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 6px;
+            margin-top: 35px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #0f172a;
+        }
+        blockquote {
+            background-color: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            padding: 12px 20px;
+            margin: 25px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        blockquote.warning {
+            background-color: #fffbe6;
+            border-left-color: #f59e0b;
+        }
+        code {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            padding: 3px 7px;
+            border-radius: 4px;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+            font-size: 0.95em;
+            border: 1px solid #e2e8f0;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #cbd5e1;
+            margin: 40px 0;
+        }
+        .chem {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 1.05em;
+            letter-spacing: 0.5px;
+        }
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0.2em;
+            text-align: center;
+        }
+        .fraction > span {
+            display: block;
+            padding: 0 0.2em;
+        }
+        .fraction > span.num {
+            border-bottom: 1.5px solid #000;
+        }
+        .badge {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>🧪 Formel-guide for Kjemi i Naturfag (Word og OneNote)</h2>
+    <p>Å skrive kjemiske formler, ioner og reaksjonsligninger digitalt kan virke knotete om man må klikke på knapper for senket og hevet skrift for hvert enkelt tegn. Med Word og OneNote sitt innebygde formelverktøy kan du skrive alt fra molekyler til kjemiske utregninger lynraskt med tastaturet!</p>
+
+    <h3>🚀 Slik åpner du formelverktøyet</h3>
+    <p>Sett markøren der du vil ha formelen og trykk på hurtigtasten for ditt operativsystem og program:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Program</th>
+                <th>Plattform</th>
+                <th>Hurtigtast</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Microsoft Word</strong></td>
+                <td>PC (Windows)</td>
+                <td><code>Alt</code> + <code>+</code> (eller <code>Alt</code> + <code>Shift</code> + <code>0</code>)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Mac</td>
+                <td><code>Control</code> + <code>=</code> (eller <code>Option</code> + <code>Command</code> + <code>=</code>)</td>
+            </tr>
+            <tr>
+                <td><strong>Microsoft OneNote</strong></td>
+                <td>PC (Windows)</td>
+                <td><code>Alt</code> + <code>=</code></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Mac</td>
+                <td><code>Control</code> + <code>=</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <blockquote class="warning">
+        <strong>💡 Profftips for rett skrift i kjemi:</strong> Word vil automatisk sette alt du skriver i en formel i <em>kursiv</em> (som passer for matematiske variabler). Kjemiske symboler (som H, O, Na) skal <strong>ikke</strong> være i kursiv. <br>
+        <strong>Løsning:</strong> Sett anførselstegn rundt teksten eller kjemisymbolet! Skriver du <code>"H"_2"O"</code>, blir det stående helt rett uten kursiv. Du kan også trykke på <strong>«Vanlig tekst»</strong> (Normal Text) i formelmenyen øverst.
+    </blockquote>
+
+    <hr>
+
+    <h3>⚗️ 1. Kjemiske formler (Senket og hevet skrift)</h3>
+    <p>Når formelboksen er aktiv, bruker du <code>_</code> for senket skrift (antall atomer) og <code>^</code> for hevet skrift (ladning/potens). Trykk <strong>mellomrom</strong> etter koden for at Word skal formatere det.</p>
+    
+    <h4>Molekylformler (Senket skrift)</h4>
+    <ul>
+        <li><strong>Vann:</strong> Skriv <code>H_2O</code> + <code>Mellomrom</code> &rarr; <span class="chem">H<sub>2</sub>O</span></li>
+        <li><strong>Karbondioksid:</strong> Skriv <code>CO_2</code> + <code>Mellomrom</code> &rarr; <span class="chem">CO<sub>2</sub></span></li>
+        <li><strong>Glukose:</strong> Skriv <code>C_6H_12O_6</code> (bruk parentes om nødvendig: <code>C_6H_(12)O_6</code>) &rarr; <span class="chem">C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></span></li>
+    </ul>
+
+    <h4>Ioner og ladninger (Hevet skrift eller kombinasjon)</h4>
+    <ul>
+        <li><strong>Natriumion:</strong> Skriv <code>Na^+</code> + <code>Mellomrom</code> &rarr; <span class="chem">Na<sup>+</sup></span></li>
+        <li><strong>Kloridion:</strong> Skriv <code>Cl^-</code> + <code>Mellomrom</code> &rarr; <span class="chem">Cl<sup>-</sup></span></li>
+        <li><strong>Oksidion:</strong> Skriv <code>O^(2-)</code> + <code>Mellomrom</code> &rarr; <span class="chem">O<sup>2-</sup></span></li>
+        <li><strong>Sulfation (både senket og hevet):</strong> Skriv <code>SO_4^(2-)</code> + <code>Mellomrom</code> &rarr; <span class="chem">SO<sub>4</sub><sup>2-</sup></span></li>
+        <li><strong>Oksoniumion:</strong> Skriv <code>H_3O^+</code> + <code>Mellomrom</code> &rarr; <span class="chem">H<sub>3</sub>O<sup>+</sup></span></li>
+    </ul>
+
+    <h4>Isotoper og stråling (Naturfag tema: Radioaktivitet)</h4>
+    <p>For isotoper må du ha hevet og senket skrift <em>foran</em> grunnstofftegnet:</p>
+    <ul>
+        <li><strong>Karbon-14:</strong> Skriv <code>_6^14 "C"</code> &rarr; <span class="chem"><sup>14</sup><sub>6</sub>C</span></li>
+        <li><strong>Uran-238:</strong> Skriv <code>_92^238 "U"</code> &rarr; <span class="chem"><sup>238</sup><sub>92</sub>U</span></li>
+        <li><strong>Alfa-partikkel (Heliumkjerne):</strong> Skriv <code>_2^4 \alpha</code> eller <code>_2^4 "He"</code> &rarr; <span class="chem"><sup>4</sup><sub>2</sub>He</span></li>
+    </ul>
+
+    <hr>
+
+    <h3>🔄 2. Reaksjonsligninger, piler og tilstandsformer</h3>
+    <p>I kjemi binder vi reaksjonsligninger sammen med piler og angir tilstandsformene til stoffene.</p>
+
+    <h4>Reaksjonspiler</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Type pil</th>
+                <th>Kode i Word/OneNote</th>
+                <th>Resultat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Reaksjonspil (fullstendig)</td>
+                <td><code>\rightarrow</code> eller <code>-&gt;</code> + <code>Mellomrom</code></td>
+                <td>&rarr;</td>
+            </tr>
+            <tr>
+                <td>Reversibel reaksjon (likevekt)</td>
+                <td><code>\leftrightarrow</code> eller <code>\equil</code> + <code>Mellomrom</code></td>
+                <td>&bull;&rarr; / &rightleftharpoons;</td>
+            </tr>
+            <tr>
+                <td>Reaksjon med varme/energi over pilen</td>
+                <td><code>\above(->,\Delta)</code> + <code>Mellomrom</code></td>
+                <td>&rarr; (med &Delta; over)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>Tilstandsformer <span class="badge">Viktig i Naturfag</span></h4>
+    <p>Tilstandsformer skrives i parentes etter stoffet. Husk å skrive dem i vanlig tekst (ikke kursiv) ved å bruke anførselstegn:</p>
+    <ul>
+        <li>Fast stoff (solid): <code>"(s)"</code> &rarr; (s)</li>
+        <li>Væske (liquid): <code>"(l)"</code> &rarr; (l)</li>
+        <li>Gass (gas): <code>"(g)"</code> &rarr; (g)</li>
+        <li>Løst i vann (aqueous): <code>"(aq)"</code> &rarr; (aq)</li>
+    </ul>
+
+    <h4>Komplett eksempel på reaksjonsligning:</h4>
+    <p>For å skrive knallgassreaksjonen: <span class="chem">2H<sub>2</sub>(g) + O<sub>2</sub>(g) &rarr; 2H<sub>2</sub>O(l)</span></p>
+    <p><strong>Skriv dette i formelboksen:</strong><br>
+    <code>2"H"_2"(g)" + "O"_2"(g)" \rightarrow 2"H"_2"O(l)"</code></p>
+
+    <hr>
+
+    <h3>📐 3. Støkiometri, regneformler og enheter</h3>
+    <p>Når du gjør kjemiske beregninger i Naturfag (som mol, masse, molar masse og konsentrasjon), trenger du brøker og enheter.</p>
+
+    <h4>Sentrale formler i Naturfag-kjemi</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Størrelse</th>
+                <th>Formel-kode</th>
+                <th>Visning</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Stoffmengde:</strong> $n = \frac{m}{M}$</td>
+                <td><code>n = m/M</code> + <code>Mellomrom</code></td>
+                <td>
+                    n = <span class="fraction"><span class="num">m</span><span class="den">M</span></span>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Molar konsentrasjon:</strong> $c = \frac{n}{V}$</td>
+                <td><code>c = n/V</code> + <code>Mellomrom</code></td>
+                <td>
+                    c = <span class="fraction"><span class="num">n</span><span class="den">V</span></span>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Massetetthet:</strong> $\rho = \frac{m}{V}$</td>
+                <td><code>\rho = m/V</code> + <code>Mellomrom</code></td>
+                <td>
+                    &rho; = <span class="fraction"><span class="num">m</span><span class="den">V</span></span>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Masseprosent:</strong> $\text{Masse}\% = \frac{m_{\text{stoff}}}{m_{\text{total}}} \cdot 100\%$</td>
+                <td><code>"Masse%" = (m_stoff)/(m_total) * 100%</code></td>
+                <td>
+                    Masse% = <span class="fraction"><span class="num">m<sub>stoff</sub></span><span class="den">m<sub>total</sub></span></span> &middot; 100%
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>Nyttige kjemiske enheter og greske bokstaver</h4>
+    <ul>
+        <li><strong>Molar masse (g/mol):</strong> Skriv <code>"g/mol"</code> eller <code>"g" \cdot "mol"^-1</code> &rarr; g/mol eller g&middot;mol<sup>-1</sup></li>
+        <li><strong>Konsentrasjon (mol/L):</strong> Skriv <code>"mol/L"</code> eller <code>"M"</code> &rarr; mol/L eller M</li>
+        <li><strong>Temperatur og endring (&Delta;):</strong> Skriv <code>\Delta T</code> for å få &Delta;T. For grader Celsius: skriv <code>100^\circ "C"</code> for å få 100&deg; C.</li>
+        <li><strong>Greske tegn i kjemi/stråling:</strong>
+            <ul>
+                <li><code>\alpha</code> &rarr; &alpha; (Alfa-stråling)</li>
+                <li><code>\beta</code> &rarr; &beta; (Beta-stråling)</li>
+                <li><code>\gamma</code> &rarr; &gamma; (Gamma-stråling)</li>
+                <li><code>\rho</code> &rarr; &rho; (Tetthet / Rho)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <blockquote>
+        <strong>💡 Eksempel på komplett utregning i Word/OneNote:</strong><br>
+        <code>n = m/M = (5.00 " g")/(58.44 " g/mol") = 0.0855 " mol"</code> <br><br>
+        Vil bli seende slik ut:<br>
+        n = <span class="fraction"><span class="num">m</span><span class="den">M</span></span> = <span class="fraction"><span class="num">5.00 g</span><span class="den">58.44 g/mol</span></span> = 0.0855 mol
+    </blockquote>
+
+</body>
+</html>
