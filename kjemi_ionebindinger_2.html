@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Øv på Ionebindinger og Salter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-mono {
+            font-family: 'JetBrains+Mono', monospace;
+        }
+        .step-inactive {
+            opacity: 0.4;
+            pointer-events: none;
+            filter: grayscale(0.8);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- HEADER -->
+    <header class="border-b border-slate-800 bg-slate-900/60 backdrop-blur sticky top-0 z-20">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-emerald-400 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-cyan-500/20">
+                    Na⁺
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg text-slate-100">Kjemi: Ionebindinger</h1>
+                    <p class="text-xs text-slate-400">Øv på ladninger, saltformler, balansering og navngiving</p>
+                </div>
+            </div>
+
+            <!-- SCORE & STATS BADGES -->
+            <div class="flex items-center gap-3">
+                <div class="bg-slate-900 border border-slate-800 px-3.5 py-1.5 rounded-xl flex items-center gap-2">
+                    <span class="text-xs text-slate-400 font-medium">Løste oppgaver:</span>
+                    <span id="stat-solved" class="font-bold text-emerald-400 font-mono">0</span>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 px-3.5 py-1.5 rounded-xl flex items-center gap-2">
+                    <span class="text-xs text-slate-400 font-medium">Poeng:</span>
+                    <span id="stat-score" class="font-bold text-cyan-400 font-mono">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN APP CONTAINER -->
+    <main class="max-w-5xl mx-auto px-4 py-8 w-full flex-grow">
+        
+        <!-- PRACTICE VIEW -->
+        <div id="practice-view" class="space-y-6">
+
+            <!-- PERIODIC TABLE & RULES CHEAT SHEET (TOGGLEABLE) -->
+            <details class="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden group">
+                <summary class="px-5 py-3.5 cursor-pointer font-semibold text-sm text-cyan-400 flex items-center justify-between hover:bg-slate-800/50 transition">
+                    <span class="flex items-center gap-2">
+                        <span>💡</span> Hjelp: Ladningsregler og periodesystemet (S-blokk + Al)
+                    </span>
+                    <span class="text-xs text-slate-500 group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="p-5 border-t border-slate-800 bg-slate-950/50 space-y-4">
+                    <div class="text-sm text-slate-300 space-y-3">
+                        <p>
+                            <strong class="text-slate-100">Oktettregelen (Åtteregelen):</strong> Atomer ønsker å oppnå fullt ytterskall (8 ytterelektroner, som edelgassene).
+                        </p>
+                        <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-700 space-y-2 text-xs">
+                            <div class="flex justify-between border-b border-slate-800 pb-1">
+                                <span class="font-bold text-amber-400">Gruppe 1 (Alkalimetaller):</span>
+                                <span>1 ytterelektron ➔ Mister 1 e⁻ ➔ <strong class="text-emerald-400">+1 ladning</strong></span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-1">
+                                <span class="font-bold text-amber-400">Gruppe 2 (Jordalkalimetaller):</span>
+                                <span>2 ytterelektroner ➔ Mister 2 e⁻ ➔ <strong class="text-emerald-400">+2 ladning</strong></span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-1">
+                                <span class="font-bold text-amber-400">Gruppe 13 (Jordmetaller):</span>
+                                <span>3 ytterelektroner ➔ Mister 3 e⁻ ➔ <strong class="text-emerald-400">+3 ladning</strong></span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-1">
+                                <span class="font-bold text-cyan-400">Gruppe 15 (Nitrogengruppa):</span>
+                                <span>5 ytterelektroner ➔ Tar opp 3 e⁻ ➔ <strong class="text-emerald-400">-3 ladning</strong></span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-1">
+                                <span class="font-bold text-cyan-400">Gruppe 16 (Oksygengruppa):</span>
+                                <span>6 ytterelektroner ➔ Tar opp 2 e⁻ ➔ <strong class="text-emerald-400">-2 ladning</strong></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-bold text-cyan-400">Gruppe 17 (Halogener):</span>
+                                <span>7 ytterelektroner ➔ Tar opp 1 e⁻ ➔ <strong class="text-emerald-400">-1 ladning</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- DRAWN ELEMENTS DISPLAY CARD -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-10 -top-10 w-40 h-40 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="text-center mb-4">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">
+                        Trukket sammensetning
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <!-- Metal Box -->
+                    <div class="bg-slate-950/70 border border-amber-500/30 rounded-xl p-5 text-center space-y-2 relative">
+                        <span class="text-[10px] font-bold text-amber-400 tracking-wider bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/20">
+                            Metall (Avgir e⁻)
+                        </span>
+                        <div id="metal-symbol" class="text-5xl font-extrabold text-amber-300 font-mono tracking-tight my-2">
+                            Na
+                        </div>
+                        <div id="metal-display-name" class="font-semibold text-lg text-slate-100">
+                            Natrium
+                        </div>
+                        <div id="metal-group-info" class="text-xs text-slate-400">
+                            Gruppe 1 (Alkalimetall)
+                        </div>
+                    </div>
+
+                    <!-- Non-Metal Box -->
+                    <div class="bg-slate-950/70 border border-cyan-500/30 rounded-xl p-5 text-center space-y-2 relative">
+                        <span class="text-[10px] font-bold text-cyan-400 tracking-wider bg-cyan-500/10 px-2.5 py-1 rounded-md border border-cyan-500/20">
+                            Ikke-metall (Tar opp e⁻)
+                        </span>
+                        <div id="nonmetal-symbol" class="text-5xl font-extrabold text-cyan-300 font-mono tracking-tight my-2">
+                            Cl
+                        </div>
+                        <div id="nonmetal-display-name" class="font-semibold text-lg text-slate-100">
+                            Klor
+                        </div>
+                        <div id="nonmetal-group-info" class="text-xs text-slate-400">
+                            Gruppe 17 (Halogen)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 1: CHARGES -->
+            <div id="step1-card" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 transition-all">
+                <div class="flex items-center gap-3 mb-4">
+                    <span id="step1-badge" class="w-7 h-7 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center text-sm">
+                        1
+                    </span>
+                    <h2 class="font-bold text-base text-slate-100">Trinn 1: Velg riktig ioneladning</h2>
+                </div>
+
+                <p class="text-sm text-slate-300 mb-6">
+                    Bruk gruppetilhørigheten i periodesystemet til å finne ut hvilke ladninger ionene får når de oppnår edelgassstruktur.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-amber-400">
+                            Hvilken ladning får <span id="metal-charge-name" class="underline">Natrium</span>-ionet?
+                        </label>
+                        <select id="metal-charge-select" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-amber-400 font-medium text-sm">
+                            <option value="">Velg ladning...</option>
+                            <option value="1">+1</option>
+                            <option value="2">+2</option>
+                            <option value="3">+3</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-cyan-400">
+                            Hvilken ladning får <span id="nonmetal-charge-name" class="underline">Klor</span>-ionet?
+                        </label>
+                        <select id="nonmetal-charge-select" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-cyan-400 font-medium text-sm">
+                            <option value="">Velg ladning...</option>
+                            <option value="-1">-1</option>
+                            <option value="-2">-2</option>
+                            <option value="-3">-3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <button id="step1-btn" onclick="checkStep1()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition shadow-lg shadow-amber-500/20 flex items-center gap-2">
+                        Sjekk Trinn 1 ➔
+                    </button>
+                    <div id="step1-feedback" class="text-sm font-medium"></div>
+                </div>
+            </div>
+
+            <!-- STEP 2: FORMULA & BALANCING -->
+            <div id="step2-card" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 transition-all step-inactive">
+                <div class="flex items-center gap-3 mb-4">
+                    <span id="step2-badge" class="w-7 h-7 rounded-full bg-slate-700 text-slate-400 font-bold flex items-center justify-center text-sm">
+                        2
+                    </span>
+                    <h2 class="font-bold text-base text-slate-100">Trinn 2: Nøytralt salt og balansert reaksjonslikning</h2>
+                </div>
+
+                <p class="text-sm text-slate-300 mb-6">
+                    Velg indekser for saltet slik at total ladning blir 0 (nøytral). Sett deretter inn riktige koeffisienter for å balansere antall atomer på hver side.
+                </p>
+
+                <!-- EQUATION BUILDING CONTAINER -->
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 mb-6 overflow-x-auto">
+                    <div class="flex items-center justify-center gap-2 min-w-[500px] text-lg font-mono">
+                        
+                        <!-- Metal coefficient -->
+                        <input type="number" id="coeff-metal" min="1" max="8" value="1" class="w-12 h-11 text-center bg-slate-800 border-2 border-amber-500/50 rounded-lg font-bold text-amber-300 focus:outline-none focus:border-amber-400">
+                        <span id="eq-metal-sym" class="text-amber-300 font-bold">Na(s)</span>
+                        
+                        <span class="text-slate-500 font-bold mx-1">+</span>
+
+                        <!-- NonMetal coefficient -->
+                        <input type="number" id="coeff-nonmetal" min="1" max="8" value="1" class="w-12 h-11 text-center bg-slate-800 border-2 border-cyan-500/50 rounded-lg font-bold text-cyan-300 focus:outline-none focus:border-cyan-400">
+                        <span id="eq-nonmetal-elem" class="text-cyan-300 font-bold">Cl₂(g)</span>
+
+                        <span class="text-slate-400 font-bold mx-2">➔</span>
+
+                        <!-- Salt coefficient -->
+                        <input type="number" id="coeff-salt" min="1" max="8" value="1" class="w-12 h-11 text-center bg-slate-800 border-2 border-emerald-500/50 rounded-lg font-bold text-emerald-300 focus:outline-none focus:border-emerald-400">
+                        
+                        <!-- Salt formula with subscript inputs -->
+                        <div class="inline-flex items-baseline bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-600 font-bold">
+                            <span id="eq-salt-metal" class="text-amber-300">Na</span>
+                            <input type="number" id="sub-metal" min="1" max="6" value="1" class="w-8 h-8 text-xs text-center bg-slate-900 border border-slate-600 rounded text-amber-300 ml-0.5 focus:outline-none focus:border-amber-400">
+                            
+                            <span id="eq-salt-nonmetal" class="text-cyan-300 ml-1">Cl</span>
+                            <input type="number" id="sub-nonmetal" min="1" max="6" value="1" class="w-8 h-8 text-xs text-center bg-slate-900 border border-slate-600 rounded text-cyan-300 ml-0.5 focus:outline-none focus:border-cyan-400">
+                            <span class="text-slate-400 font-normal text-sm ml-1">(s)</span>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-slate-400 text-center mt-2">
+                        Merk: Sett indeksen eller koeffisienten til 1 dersom det kun skal være 1.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <button id="step2-btn" onclick="checkStep2()" disabled class="bg-slate-700 text-slate-400 font-bold px-5 py-2.5 rounded-xl cursor-not-allowed flex items-center gap-2">
+                        Sjekk Trinn 2 ➔
+                    </button>
+                    <div id="step2-feedback" class="text-sm font-medium"></div>
+                </div>
+            </div>
+
+            <!-- STEP 3: NAMING -->
+            <div id="step3-card" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 transition-all step-inactive">
+                <div class="flex items-center gap-3 mb-4">
+                    <span id="step3-badge" class="w-7 h-7 rounded-full bg-slate-700 text-slate-400 font-bold flex items-center justify-center text-sm">
+                        3
+                    </span>
+                    <h2 class="font-bold text-base text-slate-100">Trinn 3: Skriv det norske navnet på saltet</h2>
+                </div>
+
+                <p class="text-sm text-slate-300 mb-4">
+                    Regel: Skriv navnet på metallet først, deretter navnet på ikke-metallet modifisert med endelsen <strong class="text-cyan-300">-id</strong>. Salter skrives i ett ord.
+                </p>
+
+                <div class="max-w-md space-y-3 mb-6">
+                    <label class="block text-xs font-semibold text-slate-400">Navn på saltet (f.eks. natriumklorid):</label>
+                    <input type="text" id="salt-name-input" placeholder="Skriv inn saltets navn..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-cyan-400 font-medium text-sm">
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <button id="step3-btn" onclick="checkStep3()" disabled class="bg-slate-700 text-slate-400 font-bold px-5 py-2.5 rounded-xl cursor-not-allowed flex items-center gap-2">
+                        Fullfør Oppgaven 🎯
+                    </button>
+                    <div id="step3-feedback" class="text-sm font-medium"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SUCCESS CHOICE MODAL CONTAINER (HIDDEN UNTIL TASK SOLVED) -->
+        <div id="complete-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+            <div class="bg-slate-900 border border-slate-700 rounded-3xl p-8 max-w-lg w-full text-center space-y-6 shadow-2xl relative">
+                <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 rounded-full flex items-center justify-center text-3xl mx-auto">
+                    🎉
+                </div>
+                
+                <div class="space-y-2">
+                    <h3 class="text-2xl font-extrabold text-slate-100">Fantastisk jobbet!</h3>
+                    <p id="complete-summary-text" class="text-slate-300 text-sm">
+                        Du har satt sammen saltet helt riktig!
+                    </p>
+                </div>
+
+                <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                    <button onclick="nextTask()" class="flex-1 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-3.5 px-4 rounded-xl transition shadow-lg shadow-cyan-500/20">
+                        🔄 En oppgave til
+                    </button>
+                    <button onclick="finishPractice()" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold py-3.5 px-4 rounded-xl transition">
+                        🏁 Ferdig
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINAL SUMMARY SCREEN (HIDDEN BY DEFAULT) -->
+        <div id="summary-view" class="bg-slate-900 border border-slate-800 rounded-3xl p-8 max-w-2xl mx-auto text-center space-y-8 hidden shadow-2xl">
+            <div class="w-20 h-20 bg-gradient-to-tr from-cyan-500 to-emerald-400 rounded-3xl flex items-center justify-center text-4xl mx-auto shadow-xl shadow-cyan-500/20 text-slate-950 font-black">
+                🌟
+            </div>
+
+            <div class="space-y-3">
+                <h2 class="text-3xl font-black text-slate-100 tracking-tight">Oppsummering & Resultat</h2>
+                <p class="text-slate-300 text-base max-w-md mx-auto">
+                    Tusen takk for innsatsen! Du har øvd godt på ionebindinger, balansering og kjemisk navngiving.
+                </p>
+            </div>
+
+            <!-- STATS CARDS -->
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4">
+                    <span class="text-xs text-slate-400 font-medium">Fullførte salter</span>
+                    <div id="summary-solved" class="text-3xl font-black text-emerald-400 font-mono mt-1">0</div>
+                </div>
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4">
+                    <span class="text-xs text-slate-400 font-medium font-mono">Total Poengsum</span>
+                    <div id="summary-score" class="text-3xl font-black text-cyan-400 font-mono mt-1">0</div>
+                </div>
+            </div>
+
+            <!-- LIST OF SOLVED SALTS -->
+            <div class="text-left space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Salter du har mestret:</h4>
+                <div id="salts-history-list" class="flex flex-wrap gap-2 max-h-40 overflow-y-auto p-1">
+                    <!-- Dynamic pills -->
+                </div>
+            </div>
+
+            <!-- FINAL GREETING -->
+            <div class="bg-slate-950/80 border border-cyan-500/30 rounded-2xl p-5 text-slate-300 text-sm text-left space-y-2">
+                <div class="flex items-center gap-2 font-bold text-cyan-400">
+                    <span>💌</span> Hilsen fra Kjemi-veilederen:
+                </div>
+                <p>
+                    Kjempebra innsats! Å forstå hvordan metaller avgir elektroner og ikke-metaller tar dem opp for å oppnå edelgassstruktur er nøkkelen til generell kjemi. Lykke til videre med studiene!
+                </p>
+            </div>
+
+            <button onclick="restartAll()" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-3.5 px-8 rounded-xl transition shadow-lg shadow-cyan-500/20">
+                🚀 Start ny økt
+            </button>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-900 py-4 text-center text-xs text-slate-400">
+        Interaktiv kjemiapp for videregående skole | Ionebindinger & Salter
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // DATA DEFINITIONS: S-block metals (+ Aluminium) and main group non-metals
+        const METALS = [
+            { symbol: 'Li', name: 'Litium', group: 1, groupName: 'Gruppe 1 (Alkalimetall)', charge: 1 },
+            { symbol: 'Na', name: 'Natrium', group: 1, groupName: 'Gruppe 1 (Alkalimetall)', charge: 1 },
+            { symbol: 'K',  name: 'Kalium',  group: 1, groupName: 'Gruppe 1 (Alkalimetall)', charge: 1 },
+            { symbol: 'Mg', name: 'Magnesium', group: 2, groupName: 'Gruppe 2 (Jordalkalimetall)', charge: 2 },
+            { symbol: 'Ca', name: 'Kalsium', group: 2, groupName: 'Gruppe 2 (Jordalkalimetall)', charge: 2 },
+            { symbol: 'Ba', name: 'Barium',  group: 2, groupName: 'Gruppe 2 (Jordalkalimetall)', charge: 2 },
+            { symbol: 'Al', name: 'Aluminium', group: 13, groupName: 'Gruppe 13 (Jordmetall)', charge: 3 }
+        ];
+
+        const NON_METALS = [
+            { symbol: 'F',  name: 'Fluor',    ionName: 'fluorid',  diatomicSymbol: 'F₂',  diatomicAtoms: 2, stateSymbol: '(g)', groupName: 'Gruppe 17 (Halogen)', charge: -1 },
+            { symbol: 'Cl', name: 'Klor',     ionName: 'klorid',   diatomicSymbol: 'Cl₂', diatomicAtoms: 2, stateSymbol: '(g)', groupName: 'Gruppe 17 (Halogen)', charge: -1 },
+            { symbol: 'Br', name: 'Brom',     ionName: 'bromid',   diatomicSymbol: 'Br₂', diatomicAtoms: 2, stateSymbol: '(l)', groupName: 'Gruppe 17 (Halogen)', charge: -1 },
+            { symbol: 'I',  name: 'Jod',      ionName: 'jodid',    diatomicSymbol: 'I₂',  diatomicAtoms: 2, stateSymbol: '(s)', groupName: 'Gruppe 17 (Halogen)', charge: -1 },
+            { symbol: 'O',  name: 'Oksygen',  ionName: 'oksid',    diatomicSymbol: 'O₂',  diatomicAtoms: 2, stateSymbol: '(g)', groupName: 'Gruppe 16 (Oksygengruppa)', charge: -2 },
+            { symbol: 'S',  name: 'Svovel',   ionName: 'sulfid',   diatomicSymbol: 'S',   diatomicAtoms: 1, stateSymbol: '(s)', groupName: 'Gruppe 16 (Oksygengruppa)', charge: -2 },
+            { symbol: 'N',  name: 'Nitrogen', ionName: 'nitrid',   diatomicSymbol: 'N₂',  diatomicAtoms: 2, stateSymbol: '(g)', groupName: 'Gruppe 15 (Nitrogengruppa)', charge: -3 }
+        ];
+
+        // State variables
+        let currentMetal = null;
+        let currentNonMetal = null;
+        let expectedFormula = {};
+        let expectedEquation = {};
+        let expectedSaltName = "";
+
+        let solvedCount = 0;
+        let score = 0;
+        let historySalts = [];
+
+        // Utility Math Functions
+        function gcd(a, b) {
+            return b === 0 ? a : gcd(b, a % b);
+        }
+
+        // Helper Functions for Chemical Formatting
+        function formatSaltHTML(metalSymbol, subMetal, nonMetalSymbol, subNonMetal) {
+            const mSub = subMetal > 1 ? `<sub>${subMetal}</sub>` : '';
+            const nmSub = subNonMetal > 1 ? `<sub>${subNonMetal}</sub>` : '';
+            return `${metalSymbol}${mSub}${nonMetalSymbol}${nmSub}`;
+        }
+
+        function formatNonMetalReactantHTML(nonMetal) {
+            let elemStr = nonMetal.symbol;
+            if (nonMetal.diatomicAtoms > 1) {
+                elemStr += `<sub>${nonMetal.diatomicAtoms}</sub>`;
+            }
+            return `${elemStr}${nonMetal.stateSymbol}`;
+        }
+
+        function formatFullEquationHTML() {
+            const cM = expectedEquation.coeffMetal > 1 ? expectedEquation.coeffMetal : '';
+            const cNM = expectedEquation.coeffNonMetal > 1 ? expectedEquation.coeffNonMetal : '';
+            const cS = expectedEquation.coeffSalt > 1 ? expectedEquation.coeffSalt : '';
+
+            const metalPart = `${cM}${currentMetal.symbol}(s)`;
+            const nonMetalPart = `${cNM}${formatNonMetalReactantHTML(currentNonMetal)}`;
+            const saltPart = `${cS}${formatSaltHTML(currentMetal.symbol, expectedFormula.subMetal, currentNonMetal.symbol, expectedFormula.subNonMetal)}(s)`;
+
+            return `${metalPart} + ${nonMetalPart} ➔ ${saltPart}`;
+        }
+
+        // Initialize a new task with random elements
+        function generateNewTask() {
+            currentMetal = METALS[Math.floor(Math.random() * METALS.length)];
+            currentNonMetal = NON_METALS[Math.floor(Math.random() * NON_METALS.length)];
+
+            // Calculate exact chemical formula indices
+            const mChargeAbs = Math.abs(currentMetal.charge);
+            const nmChargeAbs = Math.abs(currentNonMetal.charge);
+            const chargeGcd = gcd(mChargeAbs, nmChargeAbs);
+
+            const subMetal = nmChargeAbs / chargeGcd;
+            const subNonMetal = mChargeAbs / chargeGcd;
+
+            expectedFormula = {
+                subMetal: subMetal,
+                subNonMetal: subNonMetal
+            };
+
+            // Calculate reaction coefficients: A * Metal + B * NonMetal_d -> C * Metal_x NonMetal_y
+            const d = currentNonMetal.diatomicAtoms;
+            const eqGcd = gcd(d, subNonMetal);
+
+            const coeffSalt = d / eqGcd;
+            const coeffNonMetal = subNonMetal / eqGcd;
+            const coeffMetal = coeffSalt * subMetal;
+
+            expectedEquation = {
+                coeffMetal: coeffMetal,
+                coeffNonMetal: coeffNonMetal,
+                coeffSalt: coeffSalt
+            };
+
+            // Norwegian salt name
+            expectedSaltName = (currentMetal.name + currentNonMetal.ionName).toLowerCase();
+
+            // Reset UI step states
+            resetStepUI();
+
+            // Populate UI with drawn elements
+            document.getElementById('metal-display-name').innerText = currentMetal.name;
+            document.getElementById('metal-group-info').innerText = currentMetal.groupName;
+            document.getElementById('metal-symbol').innerText = currentMetal.symbol;
+
+            document.getElementById('nonmetal-display-name').innerText = currentNonMetal.name;
+            document.getElementById('nonmetal-group-info').innerText = currentNonMetal.groupName;
+            document.getElementById('nonmetal-symbol').innerText = currentNonMetal.symbol;
+
+            document.getElementById('metal-charge-name').innerText = currentMetal.name;
+            document.getElementById('nonmetal-charge-name').innerText = currentNonMetal.name;
+
+            // Step 2 Equation Displays
+            document.getElementById('eq-metal-sym').innerText = `${currentMetal.symbol}(s)`;
+            document.getElementById('eq-nonmetal-elem').innerText = `${currentNonMetal.diatomicSymbol}${currentNonMetal.stateSymbol}`;
+            document.getElementById('eq-salt-metal').innerText = currentMetal.symbol;
+            document.getElementById('eq-salt-nonmetal').innerText = currentNonMetal.symbol;
+        }
+
+        // Reset step forms and UI locks
+        function resetStepUI() {
+            document.getElementById('metal-charge-select').value = "";
+            document.getElementById('nonmetal-charge-select').value = "";
+            
+            document.getElementById('coeff-metal').value = 1;
+            document.getElementById('coeff-nonmetal').value = 1;
+            document.getElementById('coeff-salt').value = 1;
+            document.getElementById('sub-metal').value = 1;
+            document.getElementById('sub-nonmetal').value = 1;
+
+            document.getElementById('salt-name-input').value = "";
+
+            // Enable step 1 inputs & button
+            document.getElementById('metal-charge-select').disabled = false;
+            document.getElementById('nonmetal-charge-select').disabled = false;
+            document.getElementById('step1-btn').disabled = false;
+            document.getElementById('step1-btn').className = "bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition shadow-lg shadow-amber-500/20 flex items-center gap-2";
+            document.getElementById('step1-badge').className = "w-7 h-7 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center text-sm";
+            document.getElementById('step1-feedback').innerHTML = "";
+
+            // Enable step 2 inputs & lock card until step 1 complete
+            document.getElementById('coeff-metal').disabled = false;
+            document.getElementById('coeff-nonmetal').disabled = false;
+            document.getElementById('coeff-salt').disabled = false;
+            document.getElementById('sub-metal').disabled = false;
+            document.getElementById('sub-nonmetal').disabled = false;
+            document.getElementById('step2-btn').disabled = true;
+            document.getElementById('step2-btn').className = "bg-slate-700 text-slate-400 font-bold px-5 py-2.5 rounded-xl cursor-not-allowed flex items-center gap-2";
+            document.getElementById('step2-card').classList.add('step-inactive');
+            document.getElementById('step2-badge').className = "w-7 h-7 rounded-full bg-slate-700 text-slate-400 font-bold flex items-center justify-center text-sm";
+            document.getElementById('step2-feedback').innerHTML = "";
+
+            // Step 3 state
+            document.getElementById('salt-name-input').disabled = true;
+            document.getElementById('step3-btn').disabled = true;
+            document.getElementById('step3-btn').className = "bg-slate-700 text-slate-400 font-bold px-5 py-2.5 rounded-xl cursor-not-allowed flex items-center gap-2";
+            document.getElementById('step3-card').classList.add('step-inactive');
+            document.getElementById('step3-badge').className = "w-7 h-7 rounded-full bg-slate-700 text-slate-400 font-bold flex items-center justify-center text-sm";
+            document.getElementById('step3-feedback').innerHTML = "";
+
+            // Hide modals
+            document.getElementById('complete-modal').classList.add('hidden');
+            document.getElementById('summary-view').classList.add('hidden');
+            document.getElementById('practice-view').classList.remove('hidden');
+        }
+
+        // CHECK STEP 1: Charge selection
+        function checkStep1() {
+            const metalChargeVal = parseInt(document.getElementById('metal-charge-select').value);
+            const nonMetalChargeVal = parseInt(document.getElementById('nonmetal-charge-select').value);
+            const feedbackEl = document.getElementById('step1-feedback');
+
+            if (isNaN(metalChargeVal) || isNaN(nonMetalChargeVal)) {
+                feedbackEl.innerHTML = `<span class="text-amber-400">⚠️ Velg ladning for begge ionene.</span>`;
+                return;
+            }
+
+            const mCorrect = metalChargeVal === currentMetal.charge;
+            const nmCorrect = nonMetalChargeVal === currentNonMetal.charge;
+
+            if (mCorrect && nmCorrect) {
+                const mIon = `${currentMetal.symbol}<sup>${currentMetal.charge > 0 ? '+' + currentMetal.charge : currentMetal.charge}</sup>`;
+                const nmIon = `${currentNonMetal.symbol}<sup>${currentNonMetal.charge}</sup>`;
+                feedbackEl.innerHTML = `<span class="text-emerald-400">✅ Riktig! Ionene er ${mIon} og ${nmIon}.</span>`;
+
+                // Lock Step 1
+                document.getElementById('metal-charge-select').disabled = true;
+                document.getElementById('nonmetal-charge-select').disabled = true;
+                document.getElementById('step1-btn').disabled = true;
+                document.getElementById('step1-btn').className = "bg-emerald-500/20 text-emerald-400 font-bold px-5 py-2.5 rounded-xl cursor-default flex items-center gap-2";
+                document.getElementById('step1-badge').className = "w-7 h-7 rounded-full bg-emerald-500 text-slate-950 font-bold flex items-center justify-center text-sm";
+
+                // Unlock Step 2
+                document.getElementById('step2-card').classList.remove('step-inactive');
+                document.getElementById('step2-badge').className = "w-7 h-7 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center text-sm";
+                document.getElementById('step2-btn').disabled = false;
+                document.getElementById('step2-btn').className = "bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition shadow-lg shadow-amber-500/20 flex items-center gap-2";
+
+                score += 10;
+                updateStats();
+            } else {
+                let msg = "";
+                if (!mCorrect && !nmCorrect) {
+                    msg = "Begge ladningene er feil. Sjekk hvilken gruppe de står i.";
+                } else if (!mCorrect) {
+                    msg = `${currentMetal.name} står i ${currentMetal.groupName}. Hvor mange elektroner må det avgi?`;
+                } else {
+                    msg = `${currentNonMetal.name} står i ${currentNonMetal.groupName}. Hvor mange elektroner mangler det på fullt ytterskall?`;
+                }
+                feedbackEl.innerHTML = `<span class="text-rose-400">❌ ${msg}</span>`;
+            }
+        }
+
+        // CHECK STEP 2: Formula indices and reaction balancing
+        function checkStep2() {
+            const userCoeffMetal = parseInt(document.getElementById('coeff-metal').value) || 1;
+            const userCoeffNonMetal = parseInt(document.getElementById('coeff-nonmetal').value) || 1;
+            const userCoeffSalt = parseInt(document.getElementById('coeff-salt').value) || 1;
+            const userSubMetal = parseInt(document.getElementById('sub-metal').value) || 1;
+            const userSubNonMetal = parseInt(document.getElementById('sub-nonmetal').value) || 1;
+
+            const feedbackEl = document.getElementById('step2-feedback');
+
+            // 1. Check Subscripts
+            const subCorrect = (userSubMetal === expectedFormula.subMetal && userSubNonMetal === expectedFormula.subNonMetal);
+            
+            // 2. Check Coefficients
+            const coeffCorrect = (userCoeffMetal === expectedEquation.coeffMetal &&
+                                  userCoeffNonMetal === expectedEquation.coeffNonMetal &&
+                                  userCoeffSalt === expectedEquation.coeffSalt);
+
+            if (subCorrect && coeffCorrect) {
+                const formattedEq = formatFullEquationHTML();
+                feedbackEl.innerHTML = `<span class="text-emerald-400">✅ Perfekt! <strong class="font-mono text-cyan-300 ml-1">${formattedEq}</strong></span>`;
+
+                // Lock Step 2
+                document.getElementById('coeff-metal').disabled = true;
+                document.getElementById('coeff-nonmetal').disabled = true;
+                document.getElementById('coeff-salt').disabled = true;
+                document.getElementById('sub-metal').disabled = true;
+                document.getElementById('sub-nonmetal').disabled = true;
+
+                document.getElementById('step2-btn').disabled = true;
+                document.getElementById('step2-btn').className = "bg-emerald-500/20 text-emerald-400 font-bold px-5 py-2.5 rounded-xl cursor-default flex items-center gap-2";
+                document.getElementById('step2-badge').className = "w-7 h-7 rounded-full bg-emerald-500 text-slate-950 font-bold flex items-center justify-center text-sm";
+
+                // Unlock Step 3
+                document.getElementById('step3-card').classList.remove('step-inactive');
+                document.getElementById('step3-badge').className = "w-7 h-7 rounded-full bg-cyan-500 text-slate-950 font-bold flex items-center justify-center text-sm";
+                document.getElementById('salt-name-input').disabled = false;
+                document.getElementById('salt-name-input').focus();
+                document.getElementById('step3-btn').disabled = false;
+                document.getElementById('step3-btn').className = "bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition shadow-lg shadow-cyan-500/20 flex items-center gap-2";
+
+                score += 20;
+                updateStats();
+            } else {
+                let msg = "";
+                if (!subCorrect) {
+                    msg += "Indeksene for saltet stemmer ikke med ladningsnøytralitet. ";
+                }
+                if (!coeffCorrect) {
+                    msg += "Koeffisientene balanserer ikke antall atomer før og etter reaksjonen. ";
+                }
+                feedbackEl.innerHTML = `<span class="text-rose-400">❌ ${msg} Prøv igjen!</span>`;
+            }
+        }
+
+        // CHECK STEP 3: Salt Norwegian Name
+        function checkStep3() {
+            const rawInput = document.getElementById('salt-name-input').value.trim().toLowerCase();
+            const feedbackEl = document.getElementById('step3-feedback');
+
+            if (!rawInput) {
+                feedbackEl.innerHTML = `<span class="text-amber-400">⚠️ Skriv inn et navn først.</span>`;
+                return;
+            }
+
+            const cleanInput = rawInput.replace(/\s+/g, '').replace(/-/g, '');
+
+            if (cleanInput === expectedSaltName) {
+                feedbackEl.innerHTML = `<span class="text-emerald-400">✅ Helt riktig! Saltet heter ${expectedSaltName}.</span>`;
+
+                // Lock Step 3
+                document.getElementById('salt-name-input').disabled = true;
+                document.getElementById('step3-btn').disabled = true;
+                document.getElementById('step3-btn').className = "bg-emerald-500/20 text-emerald-400 font-bold px-5 py-2.5 rounded-xl cursor-default flex items-center gap-2";
+                document.getElementById('step3-badge').className = "w-7 h-7 rounded-full bg-emerald-500 text-slate-950 font-bold flex items-center justify-center text-sm";
+
+                score += 15;
+                solvedCount += 1;
+                updateStats();
+
+                // Format salt formula with subscript HTML tags
+                const formattedFormulaHTML = formatSaltHTML(currentMetal.symbol, expectedFormula.subMetal, currentNonMetal.symbol, expectedFormula.subNonMetal);
+
+                historySalts.push({
+                    name: expectedSaltName,
+                    formulaHTML: formattedFormulaHTML
+                });
+
+                // Show completion choice card
+                document.getElementById('complete-summary-text').innerHTML = 
+                    `Kjempekjempebra! Du har satt sammen <strong class="text-emerald-300 font-mono">${formattedFormulaHTML}</strong> (${expectedSaltName}) og balansert reaksjonslikningen helt riktig!`;
+                document.getElementById('complete-modal').classList.remove('hidden');
+
+            } else {
+                let hint = "";
+                if (rawInput.includes(" ")) {
+                    hint = "Husk at salter skrives i ÉTT ord på norsk (f.eks. natriumklorid, ikke natrium klorid).";
+                } else if (!rawInput.endsWith("id")) {
+                    hint = "Navnet på ikke-metallet skal ende på -id (f.eks. klorid, oksid, sulfid, nitrid).";
+                } else {
+                    hint = "Sjekk skrivemåten for metall- og ikke-metallionet.";
+                }
+                feedbackEl.innerHTML = `<span class="text-rose-400">❌ Ikke helt riktig. ${hint}</span>`;
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('stat-solved').innerText = solvedCount;
+            document.getElementById('stat-score').innerText = score;
+        }
+
+        function nextTask() {
+            generateNewTask();
+        }
+
+        function finishPractice() {
+            document.getElementById('complete-modal').classList.add('hidden');
+            document.getElementById('practice-view').classList.add('hidden');
+
+            document.getElementById('summary-solved').innerText = solvedCount;
+            document.getElementById('summary-score').innerText = score;
+
+            // Populate history list
+            const historyListEl = document.getElementById('salts-history-list');
+            historyListEl.innerHTML = "";
+            if (historySalts.length === 0) {
+                historyListEl.innerHTML = `<span class="text-sm text-slate-500 italic">Ingen salter løst ennå.</span>`;
+            } else {
+                historySalts.forEach(s => {
+                    const pill = document.createElement('span');
+                    pill.className = "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs font-mono text-cyan-300 font-semibold";
+                    pill.innerHTML = `<span>${s.formulaHTML}</span> <span class="text-slate-400">(${s.name})</span>`;
+                    historyListEl.appendChild(pill);
+                });
+            }
+
+            document.getElementById('summary-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function restartAll() {
+            solvedCount = 0;
+            score = 0;
+            historySalts = [];
+            updateStats();
+            generateNewTask();
+        }
+
+        // Initial launch
+        window.onload = function() {
+            generateNewTask();
+        };
+    </script>
+</body>
+</html>
