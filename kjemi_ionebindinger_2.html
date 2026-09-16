@@ -11,7 +11,7 @@
             font-family: 'Inter', sans-serif;
         }
         .font-mono {
-            font-family: 'JetBrains+Mono', monospace;
+            font-family: 'JetBrains Mono', monospace;
         }
         .step-inactive {
             opacity: 0.4;
@@ -71,27 +71,27 @@
                         <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-700 space-y-2 text-xs">
                             <div class="flex justify-between border-b border-slate-800 pb-1">
                                 <span class="font-bold text-amber-400">Gruppe 1 (Alkalimetaller):</span>
-                                <span>1 ytterelektron ➔ Mister 1 e⁻ ➔ <strong class="text-emerald-400">+1 ladning</strong></span>
+                                <span>1 ytterelektron ➔ Mister 1 e⁻ ➔ <strong class="text-emerald-400">+1 ladning (+ / 1+)</strong></span>
                             </div>
                             <div class="flex justify-between border-b border-slate-800 pb-1">
                                 <span class="font-bold text-amber-400">Gruppe 2 (Jordalkalimetaller):</span>
-                                <span>2 ytterelektroner ➔ Mister 2 e⁻ ➔ <strong class="text-emerald-400">+2 ladning</strong></span>
+                                <span>2 ytterelektroner ➔ Mister 2 e⁻ ➔ <strong class="text-emerald-400">+2 ladning (2+)</strong></span>
                             </div>
                             <div class="flex justify-between border-b border-slate-800 pb-1">
-                                <span class="font-bold text-amber-400">Gruppe 13 (Jordmetaller - denne regelen gjelder bare for Aluminium!):</span>
-                                <span>3 ytterelektroner ➔ Mister 3 e⁻ ➔ <strong class="text-emerald-400">+3 ladning</strong></span>
+                                <span class="font-bold text-amber-400">Gruppe 13 (Jordmetaller):</span>
+                                <span>3 ytterelektroner ➔ Mister 3 e⁻ ➔ <strong class="text-emerald-400">+3 ladning (3+)</strong></span>
                             </div>
                             <div class="flex justify-between border-b border-slate-800 pb-1">
                                 <span class="font-bold text-cyan-400">Gruppe 15 (Nitrogengruppa):</span>
-                                <span>5 ytterelektroner ➔ Tar opp 3 e⁻ ➔ <strong class="text-emerald-400">-3 ladning</strong></span>
+                                <span>5 ytterelektroner ➔ Tar opp 3 e⁻ ➔ <strong class="text-emerald-400">-3 ladning (3-)</strong></span>
                             </div>
                             <div class="flex justify-between border-b border-slate-800 pb-1">
                                 <span class="font-bold text-cyan-400">Gruppe 16 (Oksygengruppa):</span>
-                                <span>6 ytterelektroner ➔ Tar opp 2 e⁻ ➔ <strong class="text-emerald-400">-2 ladning</strong></span>
+                                <span>6 ytterelektroner ➔ Tar opp 2 e⁻ ➔ <strong class="text-emerald-400">-2 ladning (2-)</strong></span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="font-bold text-cyan-400">Gruppe 17 (Halogener):</span>
-                                <span>7 ytterelektroner ➔ Tar opp 1 e⁻ ➔ <strong class="text-emerald-400">-1 ladning</strong></span>
+                                <span>7 ytterelektroner ➔ Tar opp 1 e⁻ ➔ <strong class="text-emerald-400">-1 ladning (- / 1-)</strong></span>
                             </div>
                         </div>
                     </div>
@@ -368,13 +368,13 @@
         ];
 
         const NON_METALS = [
-            { symbol: 'F',  name: 'Fluor',    ionName: 'fluorid',  diatomicSymbol: 'F₂',  diatomicAtoms: 2, stateSymbol: '(g)', groupName: 'Gruppe 17 (Halogen)', charge: -1 },
-            { symbol: 'Cl', name: 'Klor',     ionName: 'klorid',   diatomicSymbol: 'Cl₂', diatomicAtoms: 2, stateSymbol: '(g)', groupName: 'Gruppe 17 (Halogen)', charge: -1 },
-            { symbol: 'Br', name: 'Brom',     ionName: 'bromid',   diatomicSymbol: 'Br₂', diatomicAtoms: 2, stateSymbol: '(l)', groupName: 'Gruppe 17 (Halogen)', charge: -1 },
-            { symbol: 'I',  name: 'Jod',      ionName: 'jodid',    diatomicSymbol: 'I₂',  diatomicAtoms: 2, stateSymbol: '(s)', groupName: 'Gruppe 17 (Halogen)', charge: -1 },
-            { symbol: 'O',  name: 'Oksygen',  ionName: 'oksid',    diatomicSymbol: 'O₂',  diatomicAtoms: 2, stateSymbol: '(g)', groupName: 'Gruppe 16 (Oksygengruppa)', charge: -2 },
-            { symbol: 'S',  name: 'Svovel',   ionName: 'sulfid',   diatomicSymbol: 'S',   diatomicAtoms: 1, stateSymbol: '(s)', groupName: 'Gruppe 16 (Oksygengruppa)', charge: -2 },
-            { symbol: 'N',  name: 'Nitrogen', ionName: 'nitrid',   diatomicSymbol: 'N₂',  diatomicAtoms: 2, stateSymbol: '(g)', groupName: 'Gruppe 15 (Nitrogengruppa)', charge: -3 }
+            { symbol: 'F',  name: 'Fluor',   ionName: 'fluorid',  diatomicSymbol: 'F₂',  diatomicAtoms: 2, stateSymbol: '(g)', groupName: 'Gruppe 17 (Halogen)', charge: -1 },
+            { symbol: 'Cl', name: 'Klor',    ionName: 'klorid',   diatomicSymbol: 'Cl₂', diatomicAtoms: 2, stateSymbol: '(g)', groupName: 'Gruppe 17 (Halogen)', charge: -1 },
+            { symbol: 'Br', name: 'Brom',    ionName: 'bromid',   diatomicSymbol: 'Br₂', diatomicAtoms: 2, stateSymbol: '(l)', groupName: 'Gruppe 17 (Halogen)', charge: -1 },
+            { symbol: 'I',  name: 'Jod',     ionName: 'jodid',    diatomicSymbol: 'I₂',  diatomicAtoms: 2, stateSymbol: '(s)', groupName: 'Gruppe 17 (Halogen)', charge: -1 },
+            { symbol: 'O',  name: 'Oksygen', ionName: 'oksid',    diatomicSymbol: 'O₂',  diatomicAtoms: 2, stateSymbol: '(g)', groupName: 'Gruppe 16 (Oksygengruppa)', charge: -2 },
+            { symbol: 'S',  name: 'Svovel',  ionName: 'sulfid',   diatomicSymbol: 'S',   diatomicAtoms: 1, stateSymbol: '(s)', groupName: 'Gruppe 16 (Oksygengruppa)', charge: -2 },
+            { symbol: 'N',  name: 'Nitrogen', ionName: 'nitrid',  diatomicSymbol: 'N₂',  diatomicAtoms: 2, stateSymbol: '(g)', groupName: 'Gruppe 15 (Nitrogengruppa)', charge: -3 }
         ];
 
         // State variables
@@ -393,7 +393,24 @@
             return b === 0 ? a : gcd(b, a % b);
         }
 
-        // Helper Functions for Chemical Formatting
+        /**
+         * Formats ion charge according to chemical notation standard:
+         * - Charge 1 / -1: Shows only sign without number 1 (e.g., Na⁺, F⁻)
+         * - Multivalent charges (>1 or <-1): Number precedes sign (e.g., Mg²⁺, O²⁻)
+         */
+        function formatIonHTML(symbol, charge) {
+            if (charge === 1) {
+                return `${symbol}<sup>+</sup>`;
+            } else if (charge === -1) {
+                return `${symbol}<sup>-</sup>`;
+            } else if (charge > 1) {
+                return `${symbol}<sup>${charge}+</sup>`;
+            } else if (charge < -1) {
+                return `${symbol}<sup>${Math.abs(charge)}-</sup>`;
+            }
+            return symbol;
+        }
+
         function formatSaltHTML(metalSymbol, subMetal, nonMetalSymbol, subNonMetal) {
             const mSub = subMetal > 1 ? `<sub>${subMetal}</sub>` : '';
             const nmSub = subNonMetal > 1 ? `<sub>${subNonMetal}</sub>` : '';
@@ -517,209 +534,188 @@
             document.getElementById('step3-card').classList.add('step-inactive');
             document.getElementById('step3-badge').className = "w-7 h-7 rounded-full bg-slate-700 text-slate-400 font-bold flex items-center justify-center text-sm";
             document.getElementById('step3-feedback').innerHTML = "";
-
-            // Hide modals
-            document.getElementById('complete-modal').classList.add('hidden');
-            document.getElementById('summary-view').classList.add('hidden');
-            document.getElementById('practice-view').classList.remove('hidden');
         }
 
-        // CHECK STEP 1: Charge selection
+        // STEP 1 CHECK
         function checkStep1() {
-            const metalChargeVal = parseInt(document.getElementById('metal-charge-select').value);
-            const nonMetalChargeVal = parseInt(document.getElementById('nonmetal-charge-select').value);
-            const feedbackEl = document.getElementById('step1-feedback');
+            const metalVal = parseInt(document.getElementById('metal-charge-select').value);
+            const nonMetalVal = parseInt(document.getElementById('nonmetal-charge-select').value);
 
-            if (isNaN(metalChargeVal) || isNaN(nonMetalChargeVal)) {
-                feedbackEl.innerHTML = `<span class="text-amber-400">⚠️ Velg ladning for begge ionene.</span>`;
+            if (isNaN(metalVal) || isNaN(nonMetalVal)) {
+                document.getElementById('step1-feedback').innerHTML = `<span class="text-amber-400 font-medium">Velg en ladning for begge ionene!</span>`;
                 return;
             }
 
-            const mCorrect = metalChargeVal === currentMetal.charge;
-            const nmCorrect = nonMetalChargeVal === currentNonMetal.charge;
+            const metalCorrect = metalVal === currentMetal.charge;
+            const nonMetalCorrect = nonMetalVal === currentNonMetal.charge;
 
-            if (mCorrect && nmCorrect) {
-                const mIon = `${currentMetal.symbol}<sup>${currentMetal.charge > 0 ? '+' + currentMetal.charge : currentMetal.charge}</sup>`;
-                const nmIon = `${currentNonMetal.symbol}<sup>${currentNonMetal.charge}</sup>`;
-                feedbackEl.innerHTML = `<span class="text-emerald-400">✅ Riktig! Ionene er ${mIon} og ${nmIon}.</span>`;
+            if (metalCorrect && nonMetalCorrect) {
+                // Correct formatting requested:
+                const metalIonStr = formatIonHTML(currentMetal.symbol, currentMetal.charge);
+                const nonMetalIonStr = formatIonHTML(currentNonMetal.symbol, currentNonMetal.charge);
 
-                // Lock Step 1
+                document.getElementById('step1-feedback').innerHTML = 
+                    `<div class="text-emerald-400 font-semibold flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 px-3.5 py-2 rounded-xl">
+                        <span>✓</span> Riktig! Ionene er <span class="font-bold font-mono text-amber-300 ml-1">${metalIonStr}</span> og <span class="font-bold font-mono text-cyan-300 ml-1">${nonMetalIonStr}</span>.
+                    </div>`;
+
+                // Disable step 1 controls
                 document.getElementById('metal-charge-select').disabled = true;
                 document.getElementById('nonmetal-charge-select').disabled = true;
                 document.getElementById('step1-btn').disabled = true;
-                document.getElementById('step1-btn').className = "bg-emerald-500/20 text-emerald-400 font-bold px-5 py-2.5 rounded-xl cursor-default flex items-center gap-2";
+                document.getElementById('step1-btn').className = "bg-slate-800 text-slate-500 font-bold px-5 py-2.5 rounded-xl cursor-not-allowed flex items-center gap-2";
                 document.getElementById('step1-badge').className = "w-7 h-7 rounded-full bg-emerald-500 text-slate-950 font-bold flex items-center justify-center text-sm";
 
                 // Unlock Step 2
                 document.getElementById('step2-card').classList.remove('step-inactive');
-                document.getElementById('step2-badge').className = "w-7 h-7 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center text-sm";
                 document.getElementById('step2-btn').disabled = false;
-                document.getElementById('step2-btn').className = "bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition shadow-lg shadow-amber-500/20 flex items-center gap-2";
-
-                score += 10;
-                updateStats();
+                document.getElementById('step2-btn').className = "bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition shadow-lg shadow-cyan-500/20 flex items-center gap-2";
+                document.getElementById('step2-badge').className = "w-7 h-7 rounded-full bg-cyan-400 text-slate-950 font-bold flex items-center justify-center text-sm";
             } else {
-                let msg = "";
-                if (!mCorrect && !nmCorrect) {
-                    msg = "Begge ladningene er feil. Sjekk hvilken gruppe de står i.";
-                } else if (!mCorrect) {
-                    msg = `${currentMetal.name} står i ${currentMetal.groupName}. Hvor mange elektroner må det avgi?`;
+                let msg = "Feil ladning: ";
+                if (!metalCorrect && !nonMetalCorrect) {
+                    msg += "Begge ioneladningene er feil.";
+                } else if (!metalCorrect) {
+                    msg += `${currentMetal.name} er i ${currentMetal.groupName}. Sjekk hvor mange elektroner det avgir.`;
                 } else {
-                    msg = `${currentNonMetal.name} står i ${currentNonMetal.groupName}. Hvor mange elektroner mangler det på fullt ytterskall?`;
+                    msg += `${currentNonMetal.name} er i ${currentNonMetal.groupName}. Sjekk hvor mange elektroner det tar opp.`;
                 }
-                feedbackEl.innerHTML = `<span class="text-rose-400">❌ ${msg}</span>`;
+                document.getElementById('step1-feedback').innerHTML = `<span class="text-rose-400 font-medium">${msg}</span>`;
             }
         }
 
-        // CHECK STEP 2: Formula indices and reaction balancing
+        // STEP 2 CHECK
         function checkStep2() {
-            const userCoeffMetal = parseInt(document.getElementById('coeff-metal').value) || 1;
-            const userCoeffNonMetal = parseInt(document.getElementById('coeff-nonmetal').value) || 1;
-            const userCoeffSalt = parseInt(document.getElementById('coeff-salt').value) || 1;
-            const userSubMetal = parseInt(document.getElementById('sub-metal').value) || 1;
-            const userSubNonMetal = parseInt(document.getElementById('sub-nonmetal').value) || 1;
+            const cM = parseInt(document.getElementById('coeff-metal').value) || 0;
+            const cNM = parseInt(document.getElementById('coeff-nonmetal').value) || 0;
+            const cS = parseInt(document.getElementById('coeff-salt').value) || 0;
+            const sM = parseInt(document.getElementById('sub-metal').value) || 0;
+            const sNM = parseInt(document.getElementById('sub-nonmetal').value) || 0;
 
-            const feedbackEl = document.getElementById('step2-feedback');
+            const formulaCorrect = (sM === expectedFormula.subMetal) && (sNM === expectedFormula.subNonMetal);
+            const balancingCorrect = (cM === expectedEquation.coeffMetal) && (cNM === expectedEquation.coeffNonMetal) && (cS === expectedEquation.coeffSalt);
 
-            // 1. Check Subscripts
-            const subCorrect = (userSubMetal === expectedFormula.subMetal && userSubNonMetal === expectedFormula.subNonMetal);
-            
-            // 2. Check Coefficients
-            const coeffCorrect = (userCoeffMetal === expectedEquation.coeffMetal &&
-                                  userCoeffNonMetal === expectedEquation.coeffNonMetal &&
-                                  userCoeffSalt === expectedEquation.coeffSalt);
+            if (formulaCorrect && balancingCorrect) {
+                const fullEqHTML = formatFullEquationHTML();
+                document.getElementById('step2-feedback').innerHTML = 
+                    `<div class="text-emerald-400 font-semibold flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 px-3.5 py-2 rounded-xl">
+                        <span>✓</span> Flott! Balansert likning: <span class="font-bold font-mono text-emerald-300 ml-1">${fullEqHTML}</span>
+                    </div>`;
 
-            if (subCorrect && coeffCorrect) {
-                const formattedEq = formatFullEquationHTML();
-                feedbackEl.innerHTML = `<span class="text-emerald-400">✅ Perfekt! <strong class="font-mono text-cyan-300 ml-1">${formattedEq}</strong></span>`;
-
-                // Lock Step 2
+                // Lock Step 2 inputs
                 document.getElementById('coeff-metal').disabled = true;
                 document.getElementById('coeff-nonmetal').disabled = true;
                 document.getElementById('coeff-salt').disabled = true;
                 document.getElementById('sub-metal').disabled = true;
                 document.getElementById('sub-nonmetal').disabled = true;
-
                 document.getElementById('step2-btn').disabled = true;
-                document.getElementById('step2-btn').className = "bg-emerald-500/20 text-emerald-400 font-bold px-5 py-2.5 rounded-xl cursor-default flex items-center gap-2";
+                document.getElementById('step2-btn').className = "bg-slate-800 text-slate-500 font-bold px-5 py-2.5 rounded-xl cursor-not-allowed flex items-center gap-2";
                 document.getElementById('step2-badge').className = "w-7 h-7 rounded-full bg-emerald-500 text-slate-950 font-bold flex items-center justify-center text-sm";
 
                 // Unlock Step 3
                 document.getElementById('step3-card').classList.remove('step-inactive');
-                document.getElementById('step3-badge').className = "w-7 h-7 rounded-full bg-cyan-500 text-slate-950 font-bold flex items-center justify-center text-sm";
                 document.getElementById('salt-name-input').disabled = false;
                 document.getElementById('salt-name-input').focus();
                 document.getElementById('step3-btn').disabled = false;
-                document.getElementById('step3-btn').className = "bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition shadow-lg shadow-cyan-500/20 flex items-center gap-2";
-
-                score += 20;
-                updateStats();
+                document.getElementById('step3-btn').className = "bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition shadow-lg shadow-emerald-500/20 flex items-center gap-2";
+                document.getElementById('step3-badge').className = "w-7 h-7 rounded-full bg-emerald-400 text-slate-950 font-bold flex items-center justify-center text-sm";
             } else {
                 let msg = "";
-                if (!subCorrect) {
-                    msg += "Indeksene for saltet stemmer ikke med ladningsnøytralitet. ";
+                if (!formulaCorrect && !balancingCorrect) {
+                    msg = "Både saltformelen (indeksene) og koeffisientene er feil.";
+                } else if (!formulaCorrect) {
+                    msg = "Sjekk saltformelen: Total positiv og negativ ladning må nøytralisere hverandre.";
+                } else {
+                    msg = "Saltformelen er nøytral og riktig! Men reaksjonslikningen er ikke balanser ennå.";
                 }
-                if (!coeffCorrect) {
-                    msg += "Koeffisientene balanserer ikke antall atomer før og etter reaksjonen. ";
-                }
-                feedbackEl.innerHTML = `<span class="text-rose-400">❌ ${msg} Prøv igjen!</span>`;
+                document.getElementById('step2-feedback').innerHTML = `<span class="text-rose-400 font-medium">${msg}</span>`;
             }
         }
 
-        // CHECK STEP 3: Salt Norwegian Name
+        // STEP 3 CHECK
         function checkStep3() {
-            const rawInput = document.getElementById('salt-name-input').value.trim().toLowerCase();
-            const feedbackEl = document.getElementById('step3-feedback');
+            const inputName = document.getElementById('salt-name-input').value.trim().toLowerCase();
 
-            if (!rawInput) {
-                feedbackEl.innerHTML = `<span class="text-amber-400">⚠️ Skriv inn et navn først.</span>`;
+            if (!inputName) {
+                document.getElementById('step3-feedback').innerHTML = `<span class="text-amber-400 font-medium">Skriv inn navnet på saltet!</span>`;
                 return;
             }
 
-            const cleanInput = rawInput.replace(/\s+/g, '').replace(/-/g, '');
-
-            if (cleanInput === expectedSaltName) {
-                feedbackEl.innerHTML = `<span class="text-emerald-400">✅ Helt riktig! Saltet heter ${expectedSaltName}.</span>`;
-
-                // Lock Step 3
-                document.getElementById('salt-name-input').disabled = true;
-                document.getElementById('step3-btn').disabled = true;
-                document.getElementById('step3-btn').className = "bg-emerald-500/20 text-emerald-400 font-bold px-5 py-2.5 rounded-xl cursor-default flex items-center gap-2";
-                document.getElementById('step3-badge').className = "w-7 h-7 rounded-full bg-emerald-500 text-slate-950 font-bold flex items-center justify-center text-sm";
-
+            if (inputName === expectedSaltName) {
+                // Task solved!
                 score += 15;
                 solvedCount += 1;
-                updateStats();
 
-                // Format salt formula with subscript HTML tags
-                const formattedFormulaHTML = formatSaltHTML(currentMetal.symbol, expectedFormula.subMetal, currentNonMetal.symbol, expectedFormula.subNonMetal);
-
+                const saltFormatted = formatSaltHTML(currentMetal.symbol, expectedFormula.subMetal, currentNonMetal.symbol, expectedFormula.subNonMetal);
                 historySalts.push({
                     name: expectedSaltName,
-                    formulaHTML: formattedFormulaHTML
+                    formula: saltFormatted
                 });
 
-                // Show completion choice card
-                document.getElementById('complete-summary-text').innerHTML = 
-                    `Kjempekjempebra! Du har satt sammen <strong class="text-emerald-300 font-mono">${formattedFormulaHTML}</strong> (${expectedSaltName}) og balansert reaksjonslikningen helt riktig!`;
-                document.getElementById('complete-modal').classList.remove('hidden');
+                updateStatsDisplay();
 
+                // Lock Step 3 inputs
+                document.getElementById('salt-name-input').disabled = true;
+                document.getElementById('step3-btn').disabled = true;
+                document.getElementById('step3-btn').className = "bg-slate-800 text-slate-500 font-bold px-5 py-2.5 rounded-xl cursor-not-allowed flex items-center gap-2";
+                document.getElementById('step3-badge').className = "w-7 h-7 rounded-full bg-emerald-500 text-slate-950 font-bold flex items-center justify-center text-sm";
+                document.getElementById('step3-feedback').innerHTML = `<span class="text-emerald-400 font-bold">Riktig navngitt!</span>`;
+
+                // Show modal popup
+                document.getElementById('complete-summary-text').innerHTML = 
+                    `Du har laget saltet <strong class="text-cyan-300 capitalize">${expectedSaltName}</strong> (${saltFormatted}) med balansert likning: <br><span class="font-mono text-emerald-300 text-xs mt-2 block">${formatFullEquationHTML()}</span>`;
+                document.getElementById('complete-modal').classList.remove('hidden');
             } else {
-                let hint = "";
-                if (rawInput.includes(" ")) {
-                    hint = "Husk at salter skrives i ÉTT ord på norsk (f.eks. natriumklorid, ikke natrium klorid).";
-                } else if (!rawInput.endsWith("id")) {
-                    hint = "Navnet på ikke-metallet skal ende på -id (f.eks. klorid, oksid, sulfid, nitrid).";
-                } else {
-                    hint = "Sjekk skrivemåten for metall- og ikke-metallionet.";
-                }
-                feedbackEl.innerHTML = `<span class="text-rose-400">❌ Ikke helt riktig. ${hint}</span>`;
+                document.getElementById('step3-feedback').innerHTML = 
+                    `<span class="text-rose-400 font-medium">Nesten! Husk: metallnavn + ikke-metallstamme + "-id". (For eksempel: ${currentMetal.name.toLowerCase()}${currentNonMetal.ionName})</span>`;
             }
         }
 
-        function updateStats() {
+        function updateStatsDisplay() {
             document.getElementById('stat-solved').innerText = solvedCount;
             document.getElementById('stat-score').innerText = score;
         }
 
         function nextTask() {
+            document.getElementById('complete-modal').classList.add('hidden');
             generateNewTask();
         }
 
         function finishPractice() {
             document.getElementById('complete-modal').classList.add('hidden');
             document.getElementById('practice-view').classList.add('hidden');
+            document.getElementById('summary-view').classList.remove('hidden');
 
             document.getElementById('summary-solved').innerText = solvedCount;
             document.getElementById('summary-score').innerText = score;
 
-            // Populate history list
-            const historyListEl = document.getElementById('salts-history-list');
-            historyListEl.innerHTML = "";
+            const historyContainer = document.getElementById('salts-history-list');
+            historyContainer.innerHTML = "";
+
             if (historySalts.length === 0) {
-                historyListEl.innerHTML = `<span class="text-sm text-slate-500 italic">Ingen salter løst ennå.</span>`;
+                historyContainer.innerHTML = `<span class="text-slate-500 text-xs italic">Ingen fullførte salter ennå.</span>`;
             } else {
                 historySalts.forEach(s => {
-                    const pill = document.createElement('span');
-                    pill.className = "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs font-mono text-cyan-300 font-semibold";
-                    pill.innerHTML = `<span>${s.formulaHTML}</span> <span class="text-slate-400">(${s.name})</span>`;
-                    historyListEl.appendChild(pill);
+                    const pill = document.createElement('div');
+                    pill.className = "bg-slate-800 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-xl text-xs flex items-center gap-2";
+                    pill.innerHTML = `<span class="capitalize font-medium">${s.name}</span> <span class="font-mono text-cyan-300 font-bold">${s.formula}</span>`;
+                    historyContainer.appendChild(pill);
                 });
             }
-
-            document.getElementById('summary-view').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function restartAll() {
             solvedCount = 0;
             score = 0;
             historySalts = [];
-            updateStats();
+            updateStatsDisplay();
+
+            document.getElementById('summary-view').classList.add('hidden');
+            document.getElementById('practice-view').classList.remove('hidden');
             generateNewTask();
         }
 
-        // Initial launch
+        // Initialize application on window load
         window.onload = function() {
             generateNewTask();
         };
