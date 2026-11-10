@@ -42,7 +42,7 @@ Navnegrunnlag: [S1, S2].
 - **Norsk hevdnavn / annet bruksnavn:** Sumpgass / myrgass (eldre bruksnavn).
 - **Merknad:** Navnene brukes også om naturlige gassblandinger med metan som hovedbestanddel, ikke bare om rent metan. Se [S17].
 
-![Strukturformel og tredimensjonal kulepinnemodell av metan](bilder/figur_01.png)
+![Strukturformel og tredimensjonal kulepinnemodell av metan](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_01.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/01.sdf)
 
@@ -52,7 +52,7 @@ Navnegrunnlag: [S1, S2].
 - **Summert strukturformel:** CH₃–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av etan](bilder/figur_02.png)
+![Strukturformel og tredimensjonal kulepinnemodell av etan](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_02.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/02.sdf)
 
@@ -62,7 +62,7 @@ Navnegrunnlag: [S1, S2].
 - **Summert strukturformel:** CH₃–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av propan](bilder/figur_03.png)
+![Strukturformel og tredimensjonal kulepinnemodell av propan](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_03.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/03.sdf)
 
@@ -72,7 +72,7 @@ Navnegrunnlag: [S1, S2].
 - **Summert strukturformel:** CH₃–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av butan](bilder/figur_04.png)
+![Strukturformel og tredimensjonal kulepinnemodell av butan](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_04.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/04.sdf)
 
@@ -82,7 +82,7 @@ Navnegrunnlag: [S1, S2].
 - **Summert strukturformel:** CH₃–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av pentan](bilder/figur_05.png)
+![Strukturformel og tredimensjonal kulepinnemodell av pentan](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_05.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/05.sdf)
 
@@ -92,7 +92,7 @@ Navnegrunnlag: [S1, S2].
 - **Summert strukturformel:** CH₃–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av heksan](bilder/figur_06.png)
+![Strukturformel og tredimensjonal kulepinnemodell av heksan](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_06.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/06.sdf)
 
@@ -102,7 +102,7 @@ Navnegrunnlag: [S1, S2].
 - **Summert strukturformel:** CH₃–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av heptan](bilder/figur_07.png)
+![Strukturformel og tredimensjonal kulepinnemodell av heptan](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_07.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/07.sdf)
 
@@ -112,7 +112,7 @@ Navnegrunnlag: [S1, S2].
 - **Summert strukturformel:** CH₃–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av oktan](bilder/figur_08.png)
+![Strukturformel og tredimensjonal kulepinnemodell av oktan](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_08.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/08.sdf)
 
@@ -122,7 +122,7 @@ Navnegrunnlag: [S1, S2].
 - **Summert strukturformel:** CH₃–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av nonan](bilder/figur_09.png)
+![Strukturformel og tredimensjonal kulepinnemodell av nonan](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_09.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/09.sdf)
 
@@ -132,7 +132,7 @@ Navnegrunnlag: [S1, S2].
 - **Summert strukturformel:** CH₃–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av dekan](bilder/figur_10.png)
+![Strukturformel og tredimensjonal kulepinnemodell av dekan](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_10.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/10.sdf)
 
@@ -159,7 +159,7 @@ Navnegrunnlag: [S1, S3].
 - **Summert strukturformel:** CH₂=CH₂
 - **Norsk hevdnavn / annet bruksnavn:** Etylen.
 
-![Strukturformel og tredimensjonal kulepinnemodell av Eten](bilder/figur_11.png)
+![Strukturformel og tredimensjonal kulepinnemodell av Eten](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_11.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/11.sdf)
 
@@ -169,7 +169,7 @@ Navnegrunnlag: [S1, S3].
 - **Summert strukturformel:** CH₂=CH–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Propylen.
 
-![Strukturformel og tredimensjonal kulepinnemodell av Propen](bilder/figur_12.png)
+![Strukturformel og tredimensjonal kulepinnemodell av Propen](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_12.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/12.sdf)
 
@@ -179,7 +179,7 @@ Navnegrunnlag: [S1, S3].
 - **Summert strukturformel:** CH₂=CH–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av but-1-en](bilder/figur_13.png)
+![Strukturformel og tredimensjonal kulepinnemodell av but-1-en](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_13.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/13.sdf)
 
@@ -189,7 +189,7 @@ Navnegrunnlag: [S1, S3].
 - **Summert strukturformel:** CH₂=CH–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av pent-1-en](bilder/figur_14.png)
+![Strukturformel og tredimensjonal kulepinnemodell av pent-1-en](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_14.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/14.sdf)
 
@@ -199,7 +199,7 @@ Navnegrunnlag: [S1, S3].
 - **Summert strukturformel:** CH₂=CH–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av heks-1-en](bilder/figur_15.png)
+![Strukturformel og tredimensjonal kulepinnemodell av heks-1-en](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_15.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/15.sdf)
 
@@ -209,7 +209,7 @@ Navnegrunnlag: [S1, S3].
 - **Summert strukturformel:** CH₂=CH–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av hept-1-en](bilder/figur_16.png)
+![Strukturformel og tredimensjonal kulepinnemodell av hept-1-en](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_16.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/16.sdf)
 
@@ -219,7 +219,7 @@ Navnegrunnlag: [S1, S3].
 - **Summert strukturformel:** CH₂=CH–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av okt-1-en](bilder/figur_17.png)
+![Strukturformel og tredimensjonal kulepinnemodell av okt-1-en](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_17.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/17.sdf)
 
@@ -229,7 +229,7 @@ Navnegrunnlag: [S1, S3].
 - **Summert strukturformel:** CH₂=CH–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av non-1-en](bilder/figur_18.png)
+![Strukturformel og tredimensjonal kulepinnemodell av non-1-en](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_18.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/18.sdf)
 
@@ -239,7 +239,7 @@ Navnegrunnlag: [S1, S3].
 - **Summert strukturformel:** CH₂=CH–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av dek-1-en](bilder/figur_19.png)
+![Strukturformel og tredimensjonal kulepinnemodell av dek-1-en](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_19.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/19.sdf)
 
@@ -249,7 +249,7 @@ Navnegrunnlag: [S1, S3].
 - **Summert strukturformel:** CH₂=CH–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av undek-1-en](bilder/figur_20.png)
+![Strukturformel og tredimensjonal kulepinnemodell av undek-1-en](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_20.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/20.sdf)
 
@@ -276,7 +276,7 @@ Navnegrunnlag: [S1, S4, S5].
 - **Summert strukturformel:** HC≡CH
 - **Norsk hevdnavn / annet bruksnavn:** Acetylen (også et beholdt IUPAC-navn).
 
-![Strukturformel og tredimensjonal kulepinnemodell av Etyn](bilder/figur_21.png)
+![Strukturformel og tredimensjonal kulepinnemodell av Etyn](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_21.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/21.sdf)
 
@@ -286,7 +286,7 @@ Navnegrunnlag: [S1, S4, S5].
 - **Summert strukturformel:** HC≡C–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Metylacetylen; allylen (eldre navn).
 
-![Strukturformel og tredimensjonal kulepinnemodell av Propyn](bilder/figur_22.png)
+![Strukturformel og tredimensjonal kulepinnemodell av Propyn](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_22.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/22.sdf)
 
@@ -296,7 +296,7 @@ Navnegrunnlag: [S1, S4, S5].
 - **Summert strukturformel:** HC≡C–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Etylacetylen.
 
-![Strukturformel og tredimensjonal kulepinnemodell av but-1-yn](bilder/figur_23.png)
+![Strukturformel og tredimensjonal kulepinnemodell av but-1-yn](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_23.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/23.sdf)
 
@@ -306,7 +306,7 @@ Navnegrunnlag: [S1, S4, S5].
 - **Summert strukturformel:** HC≡C–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av pent-1-yn](bilder/figur_24.png)
+![Strukturformel og tredimensjonal kulepinnemodell av pent-1-yn](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_24.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/24.sdf)
 
@@ -316,7 +316,7 @@ Navnegrunnlag: [S1, S4, S5].
 - **Summert strukturformel:** HC≡C–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av heks-1-yn](bilder/figur_25.png)
+![Strukturformel og tredimensjonal kulepinnemodell av heks-1-yn](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_25.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/25.sdf)
 
@@ -326,7 +326,7 @@ Navnegrunnlag: [S1, S4, S5].
 - **Summert strukturformel:** HC≡C–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av hept-1-yn](bilder/figur_26.png)
+![Strukturformel og tredimensjonal kulepinnemodell av hept-1-yn](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_26.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/26.sdf)
 
@@ -336,7 +336,7 @@ Navnegrunnlag: [S1, S4, S5].
 - **Summert strukturformel:** HC≡C–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av okt-1-yn](bilder/figur_27.png)
+![Strukturformel og tredimensjonal kulepinnemodell av okt-1-yn](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_27.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/27.sdf)
 
@@ -346,7 +346,7 @@ Navnegrunnlag: [S1, S4, S5].
 - **Summert strukturformel:** HC≡C–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av non-1-yn](bilder/figur_28.png)
+![Strukturformel og tredimensjonal kulepinnemodell av non-1-yn](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_28.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/28.sdf)
 
@@ -356,7 +356,7 @@ Navnegrunnlag: [S1, S4, S5].
 - **Summert strukturformel:** HC≡C–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av dek-1-yn](bilder/figur_29.png)
+![Strukturformel og tredimensjonal kulepinnemodell av dek-1-yn](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_29.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/29.sdf)
 
@@ -366,7 +366,7 @@ Navnegrunnlag: [S1, S4, S5].
 - **Summert strukturformel:** HC≡C–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃
 - **Norsk hevdnavn / annet bruksnavn:** Ingen vanlig særskilt hevdnavn oppgitt.
 
-![Strukturformel og tredimensjonal kulepinnemodell av undek-1-yn](bilder/figur_30.png)
+![Strukturformel og tredimensjonal kulepinnemodell av undek-1-yn](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_30.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/30.sdf)
 
@@ -389,7 +389,7 @@ Navnegrunnlag: [S6–S9].
 - **Summert strukturformel:** H–C(=O)–OH
 - **Norsk hevdnavn / annet bruksnavn:** Maursyre.
 
-![Strukturformel og tredimensjonal kulepinnemodell av metansyre](bilder/figur_31.png)
+![Strukturformel og tredimensjonal kulepinnemodell av metansyre](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_31.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/31.sdf)
 
@@ -399,7 +399,7 @@ Navnegrunnlag: [S6–S9].
 - **Summert strukturformel:** CH₃–C(=O)–OH
 - **Norsk hevdnavn / annet bruksnavn:** Eddiksyre.
 
-![Strukturformel og tredimensjonal kulepinnemodell av etansyre](bilder/figur_32.png)
+![Strukturformel og tredimensjonal kulepinnemodell av etansyre](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_32.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/32.sdf)
 
@@ -409,7 +409,7 @@ Navnegrunnlag: [S6–S9].
 - **Summert strukturformel:** CH₃–CH₂–C(=O)–OH
 - **Norsk hevdnavn / annet bruksnavn:** Propionsyre.
 
-![Strukturformel og tredimensjonal kulepinnemodell av propansyre](bilder/figur_33.png)
+![Strukturformel og tredimensjonal kulepinnemodell av propansyre](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_33.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/33.sdf)
 
@@ -419,7 +419,7 @@ Navnegrunnlag: [S6–S9].
 - **Summert strukturformel:** CH₃–CH₂–CH₂–C(=O)–OH
 - **Norsk hevdnavn / annet bruksnavn:** Smørsyre.
 
-![Strukturformel og tredimensjonal kulepinnemodell av butansyre](bilder/figur_34.png)
+![Strukturformel og tredimensjonal kulepinnemodell av butansyre](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_34.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/34.sdf)
 
@@ -429,7 +429,7 @@ Navnegrunnlag: [S6–S9].
 - **Summert strukturformel:** CH₃–CH₂–CH₂–CH₂–C(=O)–OH
 - **Norsk hevdnavn / annet bruksnavn:** Valeriansyre (n-valeriansyre).
 
-![Strukturformel og tredimensjonal kulepinnemodell av pentansyre](bilder/figur_35.png)
+![Strukturformel og tredimensjonal kulepinnemodell av pentansyre](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_35.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/35.sdf)
 
@@ -439,7 +439,7 @@ Navnegrunnlag: [S6–S9].
 - **Summert strukturformel:** CH₃–CH₂–CH₂–CH₂–CH₂–C(=O)–OH
 - **Norsk hevdnavn / annet bruksnavn:** Kapronsyre.
 
-![Strukturformel og tredimensjonal kulepinnemodell av heksansyre](bilder/figur_36.png)
+![Strukturformel og tredimensjonal kulepinnemodell av heksansyre](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_36.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/36.sdf)
 
@@ -462,7 +462,7 @@ Navnegrunnlag: [S10–S14].
 - **Summert strukturformel:** CH₃–OH
 - **Norsk hevdnavn / annet bruksnavn:** Metylalkohol; tresprit.
 
-![Strukturformel og tredimensjonal kulepinnemodell av Metanol](bilder/figur_37.png)
+![Strukturformel og tredimensjonal kulepinnemodell av Metanol](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_37.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/37.sdf)
 
@@ -472,7 +472,7 @@ Navnegrunnlag: [S10–S14].
 - **Summert strukturformel:** CH₃–CH₂–OH
 - **Norsk hevdnavn / annet bruksnavn:** Etylalkohol; sprit (dagligtale, ofte om vannløsninger).
 
-![Strukturformel og tredimensjonal kulepinnemodell av Etanol](bilder/figur_38.png)
+![Strukturformel og tredimensjonal kulepinnemodell av Etanol](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_38.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/38.sdf)
 
@@ -482,7 +482,7 @@ Navnegrunnlag: [S10–S14].
 - **Summert strukturformel:** CH₃–CH₂–CH₂–OH
 - **Norsk hevdnavn / annet bruksnavn:** n-Propylalkohol.
 
-![Strukturformel og tredimensjonal kulepinnemodell av propan-1-ol](bilder/figur_39.png)
+![Strukturformel og tredimensjonal kulepinnemodell av propan-1-ol](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_39.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/39.sdf)
 
@@ -492,7 +492,7 @@ Navnegrunnlag: [S10–S14].
 - **Summert strukturformel:** CH₃–CH₂–CH₂–CH₂–OH
 - **Norsk hevdnavn / annet bruksnavn:** n-Butylalkohol.
 
-![Strukturformel og tredimensjonal kulepinnemodell av butan-1-ol](bilder/figur_40.png)
+![Strukturformel og tredimensjonal kulepinnemodell av butan-1-ol](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_40.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/40.sdf)
 
@@ -503,7 +503,7 @@ Navnegrunnlag: [S10–S14].
 - **Norsk hevdnavn / annet bruksnavn:** n-Amylalkohol; n-pentylalkohol.
 - **Merknad:** Amylalkohol uten n- kan også betegne andre pentanolisomerer eller blandinger.
 
-![Strukturformel og tredimensjonal kulepinnemodell av pentan-1-ol](bilder/figur_41.png)
+![Strukturformel og tredimensjonal kulepinnemodell av pentan-1-ol](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_41.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/41.sdf)
 
@@ -513,7 +513,7 @@ Navnegrunnlag: [S10–S14].
 - **Summert strukturformel:** CH₃–CH₂–CH₂–CH₂–CH₂–CH₂–OH
 - **Norsk hevdnavn / annet bruksnavn:** n-Heksylalkohol.
 
-![Strukturformel og tredimensjonal kulepinnemodell av heksan-1-ol](bilder/figur_42.png)
+![Strukturformel og tredimensjonal kulepinnemodell av heksan-1-ol](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_42.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/42.sdf)
 
@@ -533,7 +533,7 @@ Navnegrunnlag: [S15, S16].
 - **Norsk hevdnavn / annet bruksnavn:** Etylenglykol; glykol.
 - **Merknad:** Også skrevet 1,2-etandiol eller etandiol.
 
-![Strukturformel og tredimensjonal kulepinnemodell av Etan-1,2-diol](bilder/figur_43.png)
+![Strukturformel og tredimensjonal kulepinnemodell av Etan-1,2-diol](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_43.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/43.sdf)
 
@@ -544,7 +544,7 @@ Navnegrunnlag: [S15, S16].
 - **Norsk hevdnavn / annet bruksnavn:** Glyserol; glyserin.
 - **Merknad:** Også skrevet 1,2,3-propantriol eller propantriol.
 
-![Strukturformel og tredimensjonal kulepinnemodell av Propan-1,2,3-triol](bilder/figur_44.png)
+![Strukturformel og tredimensjonal kulepinnemodell av Propan-1,2,3-triol](https://lektorb.github.io/Githubpagestest/Kjemi/bilder/figur_44.png)
 
 [Åpne eller last ned 3D-modellen (SDF)](modeller/44.sdf)
 
